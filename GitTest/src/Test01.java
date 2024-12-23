@@ -8,6 +8,7 @@ public class Test01 {
 		System.out.println("팀원2 세번째 커밋");
 		System.out.println("이은정의 도파민 중독자 과정");
 		System.out.println("팀원4 네번째 커밋");
+		System.out.println("팀원5 5번째 커밋");
 	}
 
 }
