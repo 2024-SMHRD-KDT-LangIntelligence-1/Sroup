@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRUOP</title>
+	
+	<canvas id="myChart"></canvas>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/history.css">
+</head>
+<body>
+    <!-- 사이드바 -->
+    <div id="sidebar" class="sidebar">
+        <ul>
+            <li>
+                <a href="#">회원정보 수정</a>
+            </li>
+            <li>
+                <a href="/templates/history.html">이력 조회</a>
+            </li>
+            <li>
+                <a href="/templates/mystudy.html">내스터디</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 사이드바 끝-->
+
+    <!-- 사이드바 외 본문 시작 -->
+    <div id="main">
+        <button class="sidebar-btn" onclick="Sidebar_move()">☰</button>
+    </div>
+    <!-- 사이드바 외 본문 시작 끝 -->
+
+    <!-- 상단 바-->
+    <header>
+        <div>
+            <button onclick="location.href='login.html';">로그인</button>
+            <button onclick="location.href='create_group.html';">그룹생성</button>
+            <button onclick="location.href='mypage.html';">마이페이지</button>
+            <button onclick="location.href='logout.html';">로그아웃</button>
+        </div>
+    </header>
+
+    <!-- dashboard -->
+    <div class="tab-container">
+        <ul class="tabs">
+            <li class="tab" data-tab="tab1">Group Board</li>
+            <li class="tab" data-tab="tab2">My Board</li>
+            <li class="tab" data-tab="tab3">Member</li>
+        </ul>
+
+        <div class="tab-content" id="tab1">
+            <p>그룹 대시보드 </p>
+            <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // 만들기 원하는 차트의 유형
+                type: 'line',
+
+                // 데이터 집합을 위한 데이터
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [0, 10, 5, 2, 20, 30, 45]
+                    }]
+                },
+
+                // 설정은 여기서 하세요
+                options: {}
+            });
+            </script>
+        </div>
+        <div class="tab-content" id="tab2">
+            <p>개인대시보드</p>
+        </div>
+        <div class="tab-content" id="tab3">
+            <p>멤버명단</p>
+        </div>
+    </div>  
+
+ <script>
+
+    /* 사이드바 열고 닫는 JS */
+    function Sidebar_move() {
+        var sidebar = document.getElementById("sidebar");
+        var mainContent = document.getElementById("main");
+        
+        if (sidebar.style.left === "0px") {
+            sidebar.style.left = "-220px";
+            mainContent.style.marginLeft = "0";
+        } else {
+            sidebar.style.left = "0";
+            mainContent.style.marginLeft = "220px";
+        }
+    }    
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        var tabs = document.querySelectorAll('.tab');
+        var tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                var target = tab.getAttribute('data-tab');
+
+             // 탭 선택 시 다른 탭의 내용 삭제 
+             tabContents.forEach(content => content.classList.remove('active'));
+
+             // 클릭한 탭과 해당 콘텐츠에 'active' 클래스 추가
+             tab.classList.add('active');
+             document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // 기본적으로 첫 번째 탭을 활성화
+        tabs[0].classList.add('active');
+        tabContents[0].classList.add('active');
+    });
+
+    </script>
+
+</body>
+
+</html>
