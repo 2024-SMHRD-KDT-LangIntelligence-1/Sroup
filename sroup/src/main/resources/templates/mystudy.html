@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRUOP</title>
-	
-	<canvas id="myChart"></canvas>
+
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <link rel="stylesheet" href="/assets/css/dashboard.css">
-    <link rel="stylesheet" href="/assets/css/history.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
+    <link rel="stylesheet" href="/css/history.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
     <!-- 사이드바 -->
@@ -18,10 +18,10 @@
                 <a href="#">회원정보 수정</a>
             </li>
             <li>
-                <a href="/templates/history.html">이력 조회</a>
+                <a href="/history.html">이력 조회</a>
             </li>
             <li>
-                <a href="/templates/mystudy.html">내스터디</a>
+                <a href="/mystudy.html">내스터디</a>
             </li>
         </ul>
     </div>
@@ -53,31 +53,24 @@
 
         <div class="tab-content" id="tab1">
             <p>그룹 대시보드 </p>
-            <script>
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
-                // 만들기 원하는 차트의 유형
-                type: 'line',
-
-                // 데이터 집합을 위한 데이터
-                data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                    datasets: [{
-                        label: 'My First dataset',
-                        backgroundColor: 'rgb(255, 99, 132)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: [0, 10, 5, 2, 20, 30, 45]
-                    }]
-                },
-
-                // 설정은 여기서 하세요
-                options: {}
-            });
-            </script>
         </div>
+        
         <div class="tab-content" id="tab2">
-            <p>개인대시보드</p>
-        </div>
+        	<div>
+        		
+        	</div>
+        	<canvas id="tab2-myChart"></canvas>
+       	 	<script>
+       	 		var ctx = document.getElementById('tab2-myChart').getContext('2d');
+       	 		var myDoughnutChart = new Chart(ctx, {
+       	    	 type: 'doughnut',
+       	    	 data : {datasets: [{data: [10, 20, 30, 15]}],
+       	    	 labels: ['A','B','D','E']}
+       	 		});
+       	 		
+            </script>
+            </div>
+        
         <div class="tab-content" id="tab3">
             <p>멤버명단</p>
         </div>

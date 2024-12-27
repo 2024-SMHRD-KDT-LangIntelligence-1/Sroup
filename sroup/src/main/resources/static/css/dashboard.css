@@ -1,9 +1,8 @@
 .tab-container {
     width: 70%;
     margin-left: 15%;
-    margin-top: 5%;
+    margin-top: 3%;
     text-align: left;
-    border-bottom-style: solid;
 }
 
 .tab:hover {
@@ -35,4 +34,11 @@
 
 .tab-content.active {
     display: block;
+}
+
+.chartest {
+	width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    text-align: left;
 }
