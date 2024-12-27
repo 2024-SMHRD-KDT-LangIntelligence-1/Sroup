@@ -1,0 +1,38 @@
+.tab-container {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 5%;
+    text-align: left;
+    border-bottom-style: solid;
+}
+
+.tab:hover {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.tabs {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.tab-content.active {
+    display: block;
+}
