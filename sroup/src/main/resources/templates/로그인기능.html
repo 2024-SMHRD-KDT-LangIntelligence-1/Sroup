@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 및 정보 수정</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 400px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .edit-button {
+      background-color: #007BFF;
+    }
+    .edit-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 로그인 화면 -->
+    <div id="login-screen">
+      <h1>로그인</h1>
+      <input type="text" id="email" placeholder="이메일" required>
+      <input type="password" id="password" placeholder="비밀번호" required>
+      <button onclick="login()">로그인</button>
+    </div>
+
+    <!-- 정보 수정 화면 -->
+    <div id="info-screen" class="hidden">
+      <h1>사용자 정보</h1>
+      <input type="text" id="username" value="홍길동" class="editable" disabled>
+      <input type="email" id="user-email" value="example@domain.com" class="editable" disabled>
+      <input type="text" id="phone" value="+82 10-1234-5678" class="editable" disabled>
+      <button class="edit-button" onclick="enableEditing()">수정하기</button>
+      <button onclick="saveChanges()">저장하기</button>
+    </div>
+  </div>
+
+  <script>
+    // 로그인 기능
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (email === "example@domain.com" && password === "password123") {
+        // 로그인 성공 시 화면 전환
+        document.getElementById("login-screen").classList.add("hidden");
+        document.getElementById("info-screen").classList.remove("hidden");
+      } else {
+        alert("로그인 실패: 이메일 또는 비밀번호를 확인하세요.");
+      }
+    }
+
+    // 정보 수정 활성화
+    function enableEditing() {
+      const inputs = document.querySelectorAll(".editable");
+      inputs.forEach(input => input.disabled = false);
+    }
+
+    // 변경 사항 저장
+    function saveChanges() {
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("user-email").value;
+      const phone = document.getElementById("phone").value;
+
+      if (username && email && phone) {
+        alert("정보가 성공적으로 저장되었습니다!");
+        // 저장 후 다시 비활성화
+        const inputs = document.querySelectorAll(".editable");
+        inputs.forEach(input => input.disabled = true);
+      } else {
+        alert("모든 필드를 입력해주세요.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRUOP</title>
 
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
     <link rel="stylesheet" href="/css/history.css">
     <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- 마인드맵 test -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
 </head>
 <body>
     <!-- 사이드바 -->
     <div id="sidebar" class="sidebar">
         <ul>
             <li>
-                <a href="#">회원정보 수정</a>
+                <a href="/html/edit-profile.html">회원정보 수정</a>
             </li>
             <li>
-                <a href="/history.html">이력 조회</a>
+                <a href="/html/history.html">이력 조회</a>
             </li>
             <li>
-                <a href="/mystudy.html">내스터디</a>
+                <a href="/html/mystudy.html">내스터디</a>
             </li>
         </ul>
     </div>
@@ -35,11 +36,11 @@
 
     <!-- 상단 바-->
     <header>
+        <div class="logo">SROUP</div>
         <div>
-            <button onclick="location.href='login.html';">로그인</button>
-            <button onclick="location.href='create_group.html';">그룹생성</button>
-            <button onclick="location.href='mypage.html';">마이페이지</button>
-            <button onclick="location.href='logout.html';">로그아웃</button>
+            <button onclick="location.href='4.groupgenerate.html'">그룹생성</button>
+            <button onclick="location.href='edit-profile.html'">마이페이지</button>
+            <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
         </div>
     </header>
 
@@ -51,38 +52,25 @@
             <li class="tab" data-tab="tab3">Member</li>
         </ul>
 
-        <div class="tab-content" id="tab1">
+        <div class="tab-content" id="tab1" >
             <p>그룹 대시보드 </p>
         </div>
-        
+        <div class="tab-content" id="tab1-1"></div>
         <div class="tab-content" id="tab2">
-        	<div>
-        		
-        	</div>
-        	<canvas id="tab2-myChart"></canvas>
-       	 	<script>
-       	 		var ctx = document.getElementById('tab2-myChart').getContext('2d');
-       	 		var myDoughnutChart = new Chart(ctx, {
-       	    	 type: 'doughnut',
-       	    	 data : {datasets: [{data: [10, 20, 30, 15]}],
-       	    	 labels: ['A','B','D','E']}
-       	 		});
-       	 		
-            </script>
-            </div>
-        
+            <p>개인대시보드</p>
+        </div>
         <div class="tab-content" id="tab3">
             <p>멤버명단</p>
         </div>
     </div>  
 
- <script>
+<script>
 
     /* 사이드바 열고 닫는 JS */
     function Sidebar_move() {
         var sidebar = document.getElementById("sidebar");
         var mainContent = document.getElementById("main");
-        
+            
         if (sidebar.style.left === "0px") {
             sidebar.style.left = "-220px";
             mainContent.style.marginLeft = "0";
@@ -114,7 +102,35 @@
         tabContents[0].classList.add('active');
     });
 
-    </script>
+</script>
+
+<!-- 마인드 맵 구현 -->
+
+<script>
+    var cy = cytoscape({
+        container: document.getElementById('mindmap-container'),
+        elements: [
+            { data: { id: 'center', label: '중심 주제' } },
+            { data: { id: 'node1', label: '주제 1', parent: 'center' } },
+            { data: { id: 'node2', label: '주제 2', parent: 'center' } },
+            { data: { source: 'center', target: 'node1' } },
+            { data: { source: 'center', target: 'node2' } }
+        ],
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    'label': 'data(label)'
+                }
+            }
+        ],
+        layout: {
+            name: 'breadthfirst',
+            directed: true,
+            padding: 10
+        }
+    });
+</script>
 
 </body>
 

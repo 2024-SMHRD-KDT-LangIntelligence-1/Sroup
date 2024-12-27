@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Extra Features</title>
+
+    <link rel="stylesheet" href="/css/2.login.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <h1>SROUP</h1>
+        <input type="text" id="username" placeholder="아이디 눌러보랑께" required />
+        <input type="password" id="password" placeholder="비밀번호 눌러보랑께" required />
+        <button id="loginButton">들어오쇼잉</button>
+        <div class="extra-links">
+            <a href="#" id="registerLink">가입하랑께</a>
+            <a href="#" id="findIdLink">이름까먹었는가</a>
+            <a href="#" id="findPasswordLink">비번알려줄까</a>
+        </div>
+        <p class="message" id="loginMessage"></p>
+    </div>
+
+    <script>
+        // 로그인 버튼 클릭
+        document.getElementById('loginButton').addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'user' && password === 'password') {
+                showMessage('Login successful!', 'green');
+            } else {
+                showMessage('Invalid username or password', 'red');
+            }
+        });
+
+        // 회원가입 링크 클릭
+        document.getElementById('registerLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showMessage('Redirecting to the registration page...', 'blue');
+            // 실제 회원가입 페이지로 이동하려면 아래 코드 사용
+            // window.location.href = '/register.html';
+        });
+
+        // 아이디 찾기 링크 클릭
+        document.getElementById('findIdLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showMessage('Redirecting to the Find Username page...', 'blue');
+            // 실제 아이디 찾기 페이지로 이동하려면 아래 코드 사용
+            // window.location.href = '/find-username.html';
+        });
+
+        // 비밀번호 찾기 링크 클릭
+        document.getElementById('findPasswordLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            showMessage('Redirecting to the Find Password page...', 'blue');
+            // 실제 비밀번호 찾기 페이지로 이동하려면 아래 코드 사용
+            // window.location.href = '/find-password.html';
+        });
+
+        // 메시지 표시 함수
+        function showMessage(message, color) {
+            const loginMessage = document.getElementById('loginMessage');
+            loginMessage.textContent = message;
+            loginMessage.style.color = color;
+        }
+    </script>
+</body>
+</html>

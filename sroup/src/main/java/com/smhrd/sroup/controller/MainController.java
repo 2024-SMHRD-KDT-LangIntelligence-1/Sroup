@@ -12,7 +12,7 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String home() {
-		return "history";
+		return "3-1.main-out";
 	}
 	
 	@RequestMapping(value="/history.html")

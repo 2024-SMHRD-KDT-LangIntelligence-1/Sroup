@@ -1,4 +1,4 @@
-package com.smhrd.sroup.vo;
+package com.smhrd.sroup.model;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ public class SroupVO {
 	
 	private String name;
 	private String tel;
-	private String eamil;
+	private String email;
 	private String pw;
 
 }
