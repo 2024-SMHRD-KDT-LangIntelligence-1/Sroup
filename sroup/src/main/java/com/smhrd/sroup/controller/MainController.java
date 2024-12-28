@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.smhrd.sroup.entity.UserEntity;
 import com.smhrd.sroup.repository.UserRepo;
 
+import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -33,18 +34,21 @@ public class MainController {
 	
 	//로그인 기능
 	@PostMapping("/2.login.html")
-	public String login(String user_id, String user_pw, HttpSession session) {
-		System.out.println("user_id :" + user_id);
-		
-		UserEntity enti = repo.findByUser_idAndUser_pw(user_id,user_pw);
-		
-		System.out.println("user_id : " + enti.getUser_id());
-		System.out.println("user_pw : " + enti.getUser_pw());
-		
-		
-		session.setAttribute("user", enti);
-		return "redirect:/";
+	public String login(String user_id, String user_pw, HttpSession session, Model model) {
+	    UserEntity user = repo.findByUser_idAndUser_pw(user_id, user_pw);
+	    
+	    // 로그인 성공 여부 확인
+	    if (user != null) {
+	    	// 세션에 사용자 정보 저장
+	        session.setAttribute("user", user);
+	        return "redirect:/"; // 로그인 성공 후 메인 페이지로 리다이렉트
+	    } else {
+	    	// 로그인 실패 시 에러 메세지 전달
+	        model.addAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");
+	        return "2.login"; // 로그인 페이지로 다시 이동
+	    }
 	}
+
 
 	
 	
