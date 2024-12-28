@@ -63,7 +63,7 @@
     <div id="login-screen">
       <h1>로그인</h1>
       <input type="text" id="user_id" placeholder="이메일" required>
-      <input type="password" id="user_pw" placeholder="비밀번호" required>
+      <input type="pw" id="user_pw" placeholder="비밀번호" required>
       <button onclick="login()">로그인</button>
     </div>
 
@@ -81,8 +81,8 @@
   <script>
     // 로그인 기능
     function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+      const email = document.getElementById("user_id").value;
+      const password = document.getElementById("user_pw").value;
 
       if (email === "example@domain.com" && password === "password123") {
         // 로그인 성공 시 화면 전환
@@ -101,11 +101,11 @@
 
     // 변경 사항 저장
     function saveChanges() {
-      const username = document.getElementById("username").value;
-      const email = document.getElementById("user-email").value;
-      const phone = document.getElementById("phone").value;
+      const user_name = document.getElementById("user_name").value;
+      const user_id = document.getElementById("user_id").value;
+      const user_phone = document.getElementById("user_phone").value;
 
-      if (username && email && phone) {
+      if (user_name && user_id && user_phone) {
         alert("정보가 성공적으로 저장되었습니다!");
         // 저장 후 다시 비활성화
         const inputs = document.querySelectorAll(".editable");
