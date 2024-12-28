@@ -22,12 +22,12 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
 
 	public UserEntity(UserVO vo) {
-		this.userId = vo.getUser_id();
-		this.userPw = vo.getUser_pw();
-		this.userName = vo.getUser_name();
-		this.userPhone = vo.getUser_phone();
-		this.userProfileImg = vo.getUser_profile_img();
-		this.joinedAt = vo.getJoined_at();
+		this.userId = vo.getUserId();
+		this.userPw = vo.getUserPw();
+		this.userName = vo.getUserName();
+		this.userPhone = vo.getUserPhone();
+		this.userProfileImg = vo.getUserProfileImg();
+		this.joinedAt = vo.getJoinedAt();
 	}
 
 	@Id
