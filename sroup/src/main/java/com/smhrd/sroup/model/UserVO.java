@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserVO {
 
-	private String user_id; // Primary Key
-	private String user_pw;
-	private String user_name;
-	private String user_phone;
-	private String user_profile_img;
-	private Timestamp joined_at;
+	private String userId;
+	private String userPw;
+	private String userName;
+	private String userPhone;
+	private String userProfileImg;
+	private Timestamp joinedAt;
 }

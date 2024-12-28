@@ -9,5 +9,5 @@ import com.smhrd.sroup.entity.UserEntity;
 public interface UserRepo extends JpaRepository<UserEntity, String>{
 
 	
-	UserEntity findByUser_idAndUser_pw(String user_id,String user_pw);
+	UserEntity findByUserIdAndUserPw(String userId,String userPw);
 }

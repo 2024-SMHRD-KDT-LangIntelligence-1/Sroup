@@ -34,8 +34,8 @@ public class MainController {
 	
 	//로그인 기능
 	@PostMapping("/2.login.html")
-	public String login(String user_id, String user_pw, HttpSession session, Model model) {
-	    UserEntity user = repo.findByUser_idAndUser_pw(user_id, user_pw);
+	public String login(String userId, String userPw, HttpSession session, Model model) {
+	    UserEntity user = repo.findByUserIdAndUserPw(userId, userPw);
 	    
 	    // 로그인 성공 여부 확인
 	    if (user != null) {
