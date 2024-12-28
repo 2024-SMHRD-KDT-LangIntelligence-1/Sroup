@@ -3,7 +3,6 @@ package com.smhrd.sroup.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -15,12 +14,12 @@ public class MainController {
 		return "3-1.main-out";
 	}
 	
-	@RequestMapping(value="/history.html")
+	@PostMapping("/history.html")
 	public String history() {
 		return "history";
 	}
 	
-	@RequestMapping(value="/mystudy.html")
+	@PostMapping("/mystudy.html")
 	public String study() {
 		return "mystudy";
 	}
