@@ -62,17 +62,17 @@
     <!-- 로그인 화면 -->
     <div id="login-screen">
       <h1>로그인</h1>
-      <input type="text" id="email" placeholder="이메일" required>
-      <input type="password" id="password" placeholder="비밀번호" required>
+      <input type="text" id="user_id" placeholder="이메일" required>
+      <input type="password" id="user_pw" placeholder="비밀번호" required>
       <button onclick="login()">로그인</button>
     </div>
 
     <!-- 정보 수정 화면 -->
     <div id="info-screen" class="hidden">
       <h1>사용자 정보</h1>
-      <input type="text" id="username" value="홍길동" class="editable" disabled>
-      <input type="email" id="user-email" value="example@domain.com" class="editable" disabled>
-      <input type="text" id="phone" value="+82 10-1234-5678" class="editable" disabled>
+      <input type="text" id="user_name" value="홍길동" class="editable" disabled>
+      <input type="email" id="user_id" value="example@domain.com" class="editable" disabled>
+      <input type="text" id="user_phone" value="+82 10-1234-5678" class="editable" disabled>
       <button class="edit-button" onclick="enableEditing()">수정하기</button>
       <button onclick="saveChanges()">저장하기</button>
     </div>
