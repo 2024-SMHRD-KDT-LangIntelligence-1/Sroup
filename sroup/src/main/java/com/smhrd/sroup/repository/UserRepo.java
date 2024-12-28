@@ -8,4 +8,6 @@ import com.smhrd.sroup.entity.UserEntity;
 @Repository
 public interface UserRepo extends JpaRepository<UserEntity, String>{
 
+	
+	UserEntity findBy
 }

@@ -24,4 +24,13 @@ public class MainController {
 		return "mystudy";
 	}
 	
+	//로그인 기능
+	@PostMapping("/login.html")
+	public void login(String user_id, String user_pw, HttpSession session) {
+		System.out.println("user_id :" + user_id);
+		
+		UserEntity enti = repo.findBy
+		
+		
+	}
 }

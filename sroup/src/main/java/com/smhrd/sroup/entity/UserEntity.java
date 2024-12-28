@@ -2,6 +2,8 @@ package com.smhrd.sroup.entity;
 
 import java.sql.Timestamp;
 
+import com.smhrd.sroup.model.UserVO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +18,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntity {
+	
+	public UserEntity(UserVO vo) {
+		this.user_id=vo.getUser_id();
+		this.user_pw=vo.getUser_pw();
+		this.user_phone=vo.getUser_phone();
+		this.user_profile_img=vo.getUser_profile_img();
+		this.joined_at=vo.getJoined_at();
+	}
 
 	// NN
 	@Id
