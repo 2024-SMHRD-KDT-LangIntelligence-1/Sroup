@@ -10,18 +10,18 @@
 <body>
     <div class="signup-container">
         <h1>SROUP</h1>
-        <form id="signupForm">
+        <form id="signupForm" action="/signup.do" method="post">
             <label for="name">이름</label>
-            <input type="text" id="name" placeholder="이름이 뭐단가" required />
+            <input type="text" id="name" name="user_name" placeholder="이름이 뭐단가" required />
 
             <label for="contact">연락처</label>
-            <input type="text" id="contact" placeholder="번호가 뭐단가" required />
+            <input type="text" id="contact" name="user_phone" placeholder="번호가 뭐단가" required />
 
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="이메일 뭐단가" required />
+            <input type="email" id="email" name="user_id" placeholder="이메일 뭐단가" required />
 
             <label for="password">비밀번호</label>
-            <input type="password" id="password" placeholder="비밀번호 뭐단가" required />
+            <input type="password" id="password" name="user_pw" placeholder="비밀번호 뭐단가" required />
 
             <label for="confirmPassword">비밀번호 확인</label>
             <input type="password" id="confirmPassword" placeholder="비밀번호 다시 확인해주쇼" required />
@@ -37,9 +37,16 @@
 
             <label>스터디 성향</label>
             <div class="radio-group">
-                <label><input type="radio" name="personality" value="introvert" required /> 내향적</label>
-                <label><input type="radio" name="personality" value="extrovert" /> 외향적</label>
-                <label><input type="radio" name="personality" value="ambivert" /> 반반</label>
+                <label><input type="checkbox" name="personality" value="1"/> 성향1</label>
+                <label><input type="checkbox" name="personality" value="2"/> 성향2</label>
+                <label><input type="checkbox" name="personality" value="3"/> 성향3</label>
+                <label><input type="checkbox" name="personality" value="4"/> 성향4</label>
+                <label><input type="checkbox" name="personality" value="5"/> 성향5</label>
+                <label><input type="checkbox" name="personality" value="6"/> 성향6</label>
+                <label><input type="checkbox" name="personality" value="7"/> 성향7</label>
+                <label><input type="checkbox" name="personality" value="8"/> 성향8</label>
+                <label><input type="checkbox" name="personality" value="9"/> 성향9</label>
+                <label><input type="checkbox" name="personality" value="10"/> 성향10</label>
             </div>
 
             <button type="submit">회원가입</button>

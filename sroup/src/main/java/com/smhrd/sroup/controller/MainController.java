@@ -23,21 +23,50 @@ public class MainController {
 		return "3-1.main-out";
 	}
 
+	// 화면 전환 GET 방식 start ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+	// 메인화면(로그인 X) -> 로그인 화면
 	@GetMapping("/login")
 	public String login() {
 		return "2.login";
 	}
-
-	@PostMapping("/history")
+	
+	// 메인화면(로그인 X) -> 회원가입 화면
+	@GetMapping("/signup")
+	public String signup() {
+		return "1.signup";
+	}
+	
+	// 메인화면(로그인 O) -> 그룹 생성 화면
+	@GetMapping("/groupgenerate")
+	public String groupGenerate() {
+		return "4.groupgenerate";
+	}
+	
+	// 메인화면(로그인 O) -> 마이 페이지 화면
+	// 사이드바 (회원정보 수정 클릭) -> 회원정보 수정 화면
+	@GetMapping("/edit-profile")
+	public String editProfile() {
+		return "edit-profile";
+	}
+	
+	// 사이드바 (이력 조회 클릭) -> 이력 조회 화면
+	@GetMapping("/history")
 	public String history() {
 		return "history";
 	}
-
-	@PostMapping("/mystudy")
-	public String study() {
-		return "mystudy";
+	
+	// 사이드바 (이력 조회 클릭) -> 이력 조회 화면
+		@GetMapping("/mystudy")
+		public String mystudy() {
+			return "mystudy";
 	}
-
+	
+	//
+	// 화면 전환 GET 방식 end ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+	
+	
+	
+	// 화면 전환 POST 방식 start ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 	// 로그인 기능
 	@PostMapping("/login.do")
 	public String login_do(@RequestParam ("user_id") String userId, 
@@ -64,4 +93,16 @@ public class MainController {
 		 //return "redirect:/";
 	}
 
+	// 회원가입 기능
+	// TODO 기능 구현하기
+	@PostMapping("/signup.do")
+	public String signup_do() {
+		
+		return "";
+	}
+	
+	
+	//
+	// 화면 전환 POST 방식 end ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+	
 }
