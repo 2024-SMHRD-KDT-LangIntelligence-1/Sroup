@@ -1,6 +1,5 @@
 package com.smhrd.sroup.model;
 
-import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserVO {
 
-	private String userId;
-	private String userPw;
-	private String userName;
-	private String userPhone;
-	private String userProfileImg;
-	private Timestamp joinedAt;
+	private String user_id;
+	private String user_pw;
+	private String user_name;
+	private String user_phone;
+	private String user_profile_img;
+	//private Timestamp joinedAt;
 }
