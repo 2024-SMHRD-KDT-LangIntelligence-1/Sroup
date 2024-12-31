@@ -13,10 +13,9 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
-
-	@Autowired
-	UserMapper userMapper;
 	
+	@Autowired
+	UserMapper usermapper;
 	// 로그인 기능
 	@PostMapping("/login.do")
 	public String login_do(@RequestParam ("user_id") String userId, 
@@ -24,10 +23,15 @@ public class UserController {
 		UserVO userVO = new UserVO();
 		userVO.setUser_id(userId);
 		userVO.setUser_pw(userPw);
+		System.out.println(userVO.getUser_id());
+		System.out.println(userVO.getUser_pw());
 		
-		UserVO vo = userMapper.login(userVO);
+		System.out.println(usermapper.login(userVO));
 		
-		System.out.println(vo.getUser_id());
+		//여기 
+		UserVO vo = usermapper.login(userVO);
+		
+//		System.out.println("vo임"+vo.getUser_id());
 	    // 로그인 성공 여부 확인
 	    if (vo != null) {
 	    	// 세션에 사용자 정보 저장

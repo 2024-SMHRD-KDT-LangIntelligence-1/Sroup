@@ -120,10 +120,10 @@ public class MainController {
 	}
 
 	// 로그인 기능 테스트 화면
-	@GetMapping("/로그인기능")
-	public String loginFeature() {
-		return "로그인기능";
-	}
+//	@GetMapping("/로그인기능")
+//	public String loginFeature() {
+//		return "로그인기능";
+//	}
 	
 
 }
