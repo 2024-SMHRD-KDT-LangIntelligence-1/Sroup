@@ -1,0 +1,107 @@
+body {
+    /* 전체화면 목록*/
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    /* 로그인,그룹생성 배경 목록*/
+    display: flex; /* 박스 위치*/
+    justify-content: space-between; /* 버튼 위치*/
+    align-items: center;
+    padding: 20px; /* 높이*/
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 32px;
+    font-weight: bold;
+}
+
+header button {
+    /* 로그인,그룹생성 박스 공간 목록*/
+    background-color: #fff;
+    border: 1px solid #ccc; /* 박스 배경 색상*/
+    padding: 5px 10px; /* 박스 크기 가로x세로*/
+    cursor: pointer;
+}
+
+.container {
+    /* 전체화면 사이즈 관련*/
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.banner {
+    /* 광고 박스 공간 */
+    background-color: #ebd515;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    /* 추천스터디 인기스터디 공간사이즈 */
+    margin-bottom: 30px;
+}
+
+.section-header {
+    /* 추천 스터디제목과 내용 공간 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    /* 추천,인기스터디 글씨 관련*/
+    margin: 0;
+    font-size: 20px;
+}
+
+.section-header button {
+    /* 더보기 목록*/
+    background-color: #f3f3f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.study-list {
+    display: flex;
+    gap: 10px;
+}
+.study-card {
+    /* 추천스터디 목록*/
+    background-color: #f8f8f6;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.study-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.study-card h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.study-card .info {
+    font-size: 12px;
+    color: #666;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이머</title>
+  
+  <link rel="stylesheet" href="/static/css/studytimer.css">
+
+</head>
+<body>
+  <div class="timer-container">
+    <div> 오늘 공부 시간 </div>
+    <div class="time">00:00:00</div>
+    <div> ㅡ </div>
+    <button class="start-btn">시작</button>
+    <button class="stop-btn">정지</button>
+  </div>
+
+<script>
+    let seconds = 0;
+    let minutes = 0;
+    let hours = 0;
+    let timerInterval;
+
+    const timeDisplay = document.querySelector(".time");
+
+    // 타이머 
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        seconds++;
+        if (seconds === 60) {
+          seconds = 0;
+          minutes++;
+        }
+        if (minutes === 60) {
+          minutes = 0;
+          hours++;
+        }
+
+        // 시간 표시 형식 업데이트
+        timeDisplay.textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      }, 1000);
+    }
+
+    // 타이머 시작
+    startTimer();
+
+    // 타이머 정지
+    var stopbtn = document.querySelector(".stop-btn");
+    stopbtn.addEventListener("click", () => {
+        clearInterval(timerInterval);
+        timerInterval = null; // 타이머 상태 초기화
+    })
+
+    // 타이머 정시 - 다시 시작
+    var startbtn = document.querySelector(".start-btn");
+    startbtn.addEventListener("click", ()=>{
+        startTimer();
+    })
+
+
+  </script>
+</body>
+</html>

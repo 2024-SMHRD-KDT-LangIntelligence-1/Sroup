@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SROUP Study Details</title>
+
+    <link rel="stylesheet" href="/css/4.groupgnerate.css">
+
+
+</head>
+<body>
+    <header>
+        <div>
+            <h1 href="/html/3.main-in.html" id="home-link">SROUP</h1>
+        </div>
+        <nav>
+           <button onclick="location.href='/edit-profile'">마이페이지</button>
+            <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <form>
+                <div class="form-group">
+                    <label for="title">모집 제목</label>
+                    <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+                </div>
+                <div class="form-group">
+                    <label for="subject">모집 과목</label>
+                    <select id="subject" name="subject">
+                        <option value="java">front-end</option>
+                        <option value="python">back-end</option>
+                        <option value="javascript">crawling</option>
+                        <option value="spring">database</option>
+                        <option value="database">other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="recruitment-number">모집 인원</label>
+                    <select id="recruitment-number" name="recruitment-number">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="recruitment-period">모집 기간</label>
+                    <select id="recruitment-period" name="recruitment-period">
+                        <option value="1-week">1주</option>
+                        <option value="2-weeks">2주</option>
+                        <option value="1-month">1개월</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="study-period">진행 기간</label>
+                    <select id="study-period" name="study-period">
+                        <option value="1-week">1주</option>
+                        <option value="2-weeks">2주</option>
+                        <option value="1-month">1개월</option>
+                        <option value="3-month">3개월</option>
+                        <option value="6-month">6개월</option>
+                        <option value="1-year">1년</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="day">요일</label>
+                    <select id="day" name="day">
+                        <option value="monday">월요일</option>
+                        <option value="tuesday">화요일</option>
+                        <option value="wednesday">수요일</option>
+                        <option value="thursday">목요일</option>
+                        <option value="friday">금요일</option>
+                        <option value="saturday">토요일</option>
+                        <option value="sunday">일요일</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="time">시간대</label>
+                    <select id="time" name="time">
+                        <option value="morning">오전</option>
+                        <option value="afternoon">오후</option>
+                        <option value="evening">저녁</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="details">상세 내용</label>
+                    <textarea id="details" name="details" placeholder="스터디에 대한 자세한 내용을 작성하세요..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">등록하기</button>
+                    <button type="button" onclick="history.back();">목록</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+        // SROUP 링크 클릭 시 화면 전환 처리
+        document.getElementById('home-link').addEventListener('click', function (event) {
+            event.preventDefault(); // 기본 링크 동작 방지
+            window.location.href = '3.main-in.html'; // 이동할 페이지 URL
+        });
+    </script>
+</body>
+</html>
+

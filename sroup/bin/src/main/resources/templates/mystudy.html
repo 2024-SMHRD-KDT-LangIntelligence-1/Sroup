@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRUOP</title>
+
+    <link rel="stylesheet" href="/css/history.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- 마인드맵 test -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
+</head>
+<body>
+    <!-- 사이드바 -->
+    <div id="sidebar" class="sidebar">
+        <ul>
+            <li>
+                <a href="/edit-profile">회원정보 수정</a>
+            </li>
+            <li>
+                <a href="/history">이력 조회</a>
+            </li>
+            <li>
+                <a href="/mystudy">내스터디</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 사이드바 끝-->
+
+    <!-- 사이드바 외 본문 시작 -->
+    <div id="main">
+        <button class="sidebar-btn" onclick="Sidebar_move()">☰</button>
+    </div>
+    <!-- 사이드바 외 본문 시작 끝 -->
+
+    <!-- 상단 바-->
+    <header>
+        <div class="logo">SROUP</div>
+        <div>
+            <button onclick="location.href='/groupgenerate'">그룹생성</button>
+            <button onclick="location.href='/edit-profile'">마이페이지</button>
+            <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
+        </div>
+    </header>
+
+    <!-- dashboard -->
+    <div class="tab-container">
+        <ul class="tabs">
+            <li class="tab" data-tab="tab1">Group Board</li>
+            <li class="tab" data-tab="tab2">My Board</li>
+            <li class="tab" data-tab="tab3">Member</li>
+        </ul>
+
+        <div class="tab-content" id="tab1" >
+            <p>그룹 대시보드 </p>
+        </div>
+        <div class="tab-content" id="tab1-1"></div>
+        <div class="tab-content" id="tab2">
+            <p>개인대시보드</p>
+        </div>
+        <div class="tab-content" id="tab3">
+            <p>멤버명단</p>
+        </div>
+    </div>  
+
+<script>
+
+    /* 사이드바 열고 닫는 JS */
+    function Sidebar_move() {
+        var sidebar = document.getElementById("sidebar");
+        var mainContent = document.getElementById("main");
+            
+        if (sidebar.style.left === "0px") {
+            sidebar.style.left = "-220px";
+            mainContent.style.marginLeft = "0";
+        } else {
+            sidebar.style.left = "0";
+            mainContent.style.marginLeft = "220px";
+        }
+    }    
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        var tabs = document.querySelectorAll('.tab');
+        var tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                var target = tab.getAttribute('data-tab');
+
+             // 탭 선택 시 다른 탭의 내용 삭제 
+             tabContents.forEach(content => content.classList.remove('active'));
+
+             // 클릭한 탭과 해당 콘텐츠에 'active' 클래스 추가
+             tab.classList.add('active');
+             document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // 기본적으로 첫 번째 탭을 활성화
+        tabs[0].classList.add('active');
+        tabContents[0].classList.add('active');
+    });
+
+</script>
+
+<!-- 마인드 맵 구현 -->
+
+<script>
+    var cy = cytoscape({
+        container: document.getElementById('mindmap-container'),
+        elements: [
+            { data: { id: 'center', label: '중심 주제' } },
+            { data: { id: 'node1', label: '주제 1', parent: 'center' } },
+            { data: { id: 'node2', label: '주제 2', parent: 'center' } },
+            { data: { source: 'center', target: 'node1' } },
+            { data: { source: 'center', target: 'node2' } }
+        ],
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    'label': 'data(label)'
+                }
+            }
+        ],
+        layout: {
+            name: 'breadthfirst',
+            directed: true,
+            padding: 10
+        }
+    });
+</script>
+
+</body>
+
+</html>

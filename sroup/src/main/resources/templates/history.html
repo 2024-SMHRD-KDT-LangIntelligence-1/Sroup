@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRUOP</title>
 
-    <link rel="stylesheet" href="/css/history.css">
-    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/static/css/history.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+
+    <script src="/static/js/dashboard.js"></script>
 </head>
 <body>
     <!-- 사이드바 -->
     <div id="sidebar" class="sidebar">
         <ul>
             <li>
-                <a href="/edit-profile">회원정보 수정</a>
+                <a href="#">회원정보 수정</a>
             </li>
             <li>
-                <a href="/history">이력 조회</a>
+                <a href="/templates/history.html">이력 조회</a>
             </li>
             <li>
-                <a href="/mystudy">내스터디</a>
+                <a href="/templates/mystudy.html">내스터디</a>
             </li>
         </ul>
     </div>
@@ -35,62 +37,31 @@
     <header>
         <div class="logo">SROUP</div>
         <div>
-            <button onclick="location.href='/groupgenerate'">그룹생성</button>
-            <button onclick="location.href='/edit-profile'">마이페이지</button>
+            <button onclick="location.href='login.html';">로그인</button>
+            <button onclick="location.href='create_group.html';">그룹생성</button>
+            <button onclick="location.href='mypage.html';">마이페이지</button>
             <button onclick="location.href='logout.html';">로그아웃</button>
         </div>
     </header>
 
     <!-- 사용자 이력 -->
+    <!-- dashboard -->
+    <div class="tab-container">
+        <ul class="tabs">
+            <li class="tab" data-tab="tab1">작성 글</li>
+            <li class="tab" data-tab="tab2">좋아요한 글</li>
+        </ul>
 
-    <table id="history-table" class="history-table" border="1">
-        <tr id="ht-header" class="ht-header">
-            <td id="hth-1">작성 글</td>
-            <td id="hth-2">작성 댓글</td>
-            <td id="hth-3">좋아요한 글</td>
-        </tr>
-        <tr>
-            <td colspan="2">제목</td>
-            <td>작성일</td>
-        </tr>
-        <tr class="ht-num">
-            <td >
-                번호
-            </td>
-            <td>
-                게시글 제목 입력란
-            </td>
-            <td>
-                작성일
-            </td>
-        </tr>
-    </table>
+        <div class="tab-content" id="tab1" >
+            <p>1</p>
+        </div>
+        <div class="tab-content" id="tab2">
+            <p>2</p>
+        </div>
+
+    </div>  
     
-    
-<script>
 
-    /* 사이드바 열고 닫는 JS */
-    function Sidebar_move() {
-        var sidebar = document.getElementById("sidebar");
-        var mainContent = document.getElementById("main");
-    
-        if (sidebar.style.left === "0px") {
-            sidebar.style.left = "-220px";
-            mainContent.style.marginLeft = "0";
-        } else {
-            sidebar.style.left = "0";
-            mainContent.style.marginLeft = "220px";
-        }
-    }    
-
-    function htclick() {
-        var hth1 = document.getElementById("hth-1");
-
-        hth
-    }
-
-
-</script>
 
 </body>
 

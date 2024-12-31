@@ -1,0 +1,86 @@
+/* 기본 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #f1f1f1;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* 사이드바 열기 버튼 스타일 */
+.open-btn {
+    font-size: 30px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* 메인 콘텐츠 스타일 */
+#main {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+    padding: 20px;
+}
+
+#main h1 {
+    font-size: 2em;
+}
+
+/* 모바일에서 사이드바 표시되도록 */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        left: -100%;
+        width: 100%;
+    }
+
+    #main {
+        margin-left: 0;
+    }
+
+    .open-btn {
+        display: block;
+    }
+}
