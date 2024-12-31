@@ -13,7 +13,7 @@ import java.util.Map;
 @RequestMapping("/api/recommend")
 public class RecommendationControllerReview {
 
-    @PostMapping
+    @PostMapping("/api/recommend/review")
     public ResponseEntity<?> getRecommendations(@RequestBody Map<String, String> request) {
         String userId = request.get("user_id");
         if (userId == null || userId.isEmpty()) {
