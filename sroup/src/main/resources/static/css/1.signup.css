@@ -57,5 +57,11 @@ body {
 .message {
     margin-top: 10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
+}
+.checkbox-group {
+    display: flex;
+    text-align: start;
+    gap: 100px;
+    font-size: 12px;
 }
