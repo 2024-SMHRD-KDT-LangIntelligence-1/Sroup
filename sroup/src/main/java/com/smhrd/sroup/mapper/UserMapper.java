@@ -14,7 +14,4 @@ public interface UserMapper {
 	// 내가 가입한 스터디 목록 조회
     List<UserVO> selectJoinedStudies(String user_id);
 
-	// 메소드 추가
-	// 이메일과 비번으로 회원 가입했는지 조회하기
-
 }

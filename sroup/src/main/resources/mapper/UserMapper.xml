@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.sroup.mapper.UserMapper">
-<select id="login" parameterType="com.smhrd.sroup.model.UserVO" resultType="com.smhrd.sroup.model.UserVO">
- SELECT * FROM tb_user WHERE USER_ID = #{user_id} and USER_PW = #{user_pw}
-</select>
+	<select id="login" parameterType="com.smhrd.sroup.model.UserVO"
+		resultType="com.smhrd.sroup.model.UserVO">
+		SELECT * FROM tb_user WHERE USER_ID = #{user_id} and USER_PW = #{user_pw}
+	</select>
 
-   <!-- 내가 가입한 스터디 목록 조회 -->
-    <select id="selectJoinedStudies" resultType="com.smhrd.sroup.model.UserVO">
+	<!-- 내가 가입한 스터디 목록 조회 -->
+    <select id="selectJoinedStudies" parameterType="string" resultType="com.smhrd.sroup.model.UserVO">
         SELECT
             sm.study_cd,
             s.study_title,
             s.study_content,
             s.closed_at,
             s.study_limit,
-            COUNT(sm2.member_cd) AS current_members
+            COALESCE(members.current_members, 0) AS current_members
         FROM
             tb_study_member sm
         JOIN
             tb_study s ON sm.study_cd = s.study_cd
-        LEFT JOIN
-            tb_study_member sm2 ON s.study_cd = sm2.study_cd AND sm2.status = 'JOINED'
+        LEFT JOIN (
+            SELECT
+                study_cd,
+                COUNT(*) AS current_members
+            FROM
+                tb_study_member
+            WHERE
+                status = 'JOINED'
+            GROUP BY
+                study_cd
+        ) members ON sm.study_cd = members.study_cd
         WHERE
             sm.user_id = #{user_id}
             AND sm.status = 'JOINED'
         GROUP BY
-            sm.study_cd, s.study_title, s.study_content, s.closed_at, s.study_limit
+            sm.study_cd, s.study_title, s.study_content, s.closed_at, s.study_limit;
     </select>
-
 </mapper>
+	

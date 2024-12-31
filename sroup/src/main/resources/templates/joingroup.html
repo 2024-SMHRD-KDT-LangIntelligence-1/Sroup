@@ -21,70 +21,22 @@
     <div class="container">
 
         <div class="section">
-            <div class="section-header">
-                <h1>내가 가입한 스터디</h1>
+    <div class="section-header">
+        <h1>내가 가입한 스터디</h1>
+    </div>
+    <div class="study-list">
+        <c:forEach var="study" items="${studies}">
+            <div class="study-card" onclick="location.href='/study/${study.study_cd}'">
+                <h3>${study.study_title}</h3>
+                <p class="info">
+                    모집 인원: ${study.current_members} / ${study.study_limit}<br>
+                    마감일: ${study.closed_at}
+                </p>
             </div>
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-                
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
-                    <h3>[버터링팀초코]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study11.html';"></div>
-                <div class="study-card" onclick="location.href='study12.html';"></div>
-                <div class="study-card" onclick="location.href='study13.html';"></div>
-                <div class="study-card" onclick="location.href='study14.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-            </div>
-        </div>
+        </c:forEach>
+    </div>
+</div>
+        
     </div>
 </body>
 </html>

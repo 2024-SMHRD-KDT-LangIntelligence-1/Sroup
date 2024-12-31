@@ -19,18 +19,17 @@ public class StudyController {
 	 @Autowired
 	    private UserMapper userMapper;
 
-	// 내가 가입한 스터디 목록 페이지
+	 // 내가 가입한 스터디 목록 조회
 	    @GetMapping("/my-studies")
 	    public String myStudies(HttpSession session, Model model) {
-	        // 세션에서 현재 사용자 ID 가져오기
 	        String userId = (String) session.getAttribute("user");
 	        if (userId == null) {
-	            return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리디렉트
+	            return "redirect:/login"; // 로그인하지 않은 경우 리디렉션
 	        }
 
 	        // 내가 가입한 스터디 목록 조회
-	        List<UserVO> studies = userMapper.selectJoinedStudies(userId);
-	        model.addAttribute("studies", studies);
+	        List<UserVO> joinedStudies = userMapper.selectJoinedStudies(userId);
+	        model.addAttribute("studies", joinedStudies);
 
 	        return "joingroup"; // 내가 가입한 스터디 페이지
 	    }
