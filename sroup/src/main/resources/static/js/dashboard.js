@@ -1,6 +1,6 @@
 
-/* 사이드바 열고 닫는 JS */
-    function Sidebar_move() {
+/* 사이드바 열고 닫는 JS  */
+    function Sidebar_move() { 
         var sidebar = document.getElementById("sidebar");
         var mainContent = document.getElementById("main");
             
