@@ -12,10 +12,56 @@
     <div class="login-container">
   
         <h1>SROUP</h1>
-          <form action="/login.do" method = "post">
+          <form action="/login.do" method = "post" url = "http://127.0.0.1:8083/process-form">
         	<input type="text" id="username" name="user_id" placeholder="아이디 눌러보랑께" required />
         	<input type="password" id="password" name="user_pw" placeholder="비밀번호 눌러보랑께" required />
-       	 <button id="loginButton" type="submit">들어오쇼잉</button> </form>
+       	 <button id="loginButton" type="submit" onclick="serverFlask()">들어오쇼잉</button> </form>
+		 <script>
+			
+			$('#loginButton').click(function () {
+				var user_id = $('#username').val();
+				var user_pw = $('#password').val();
+
+				            // 로그인 데이터
+				var data = {
+				    username: user_id,
+				    password: user_pw
+				            };
+
+				            // Spring 서버로 로그인 데이터 전송
+				            $.ajax({
+				                url: 'http://localhost:8083/login',  // Spring 서버 URL
+				                type: 'POST',
+				                contentType: 'application/json',
+				                data: JSON.stringify(data),
+				                success: function(response) {
+				                    // 로그인 성공 후 Flask로 전달
+				                    if (response.status === 'success') {
+				                        // Spring에서 받은 데이터를 Flask로 보내기
+				                        $.ajax({
+				                            url: 'http://127.0.0.1:8083/process',  // Flask 서버 URL
+				                            type: 'POST',
+				                            contentType: 'application/json',
+				                            data: JSON.stringify({ username: user_id }),
+				                            success: function(flaskResponse) {
+				                                // Flask에서 받은 알고리즘 결과를 main.html로 전달
+				                                window.location.href = 'main.html?result=' + flaskResponse.message;
+				                            }
+				                        });
+				                    } else {
+				                        alert('Login failed!');
+				                    }
+				                },
+				                error: function(error) {
+				                    alert('Error: ' + error);
+				                }
+				            });
+				        });
+			
+			
+			
+			
+		 </script>
        	 <div class="extra-links">
             <a href="#" id="registerLink">가입하랑께</a>
             <a href="#" id="findIdLink">이름까먹었는가</a>
