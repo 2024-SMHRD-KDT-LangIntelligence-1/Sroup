@@ -121,7 +121,6 @@ const uploadbtn = document.querySelector(".upload");
 
 // 회고록 작성 시 달력에 표시
 uploadbtn.addEventListener("click", (event) => {
-event.preventDefault();
 
 const title = document.getElementById("title").value;
 const content = document.getElementById("content").value;
@@ -136,6 +135,7 @@ if (title && content) {
     updateDateDisplay(); // 회고록 내용 갱신
     updateCalendar(currentDate); // 달력 갱신
 } else {
+	event.preventDefault();
     alert("제목과 내용을 모두 입력해주세요.");
 }
 });

@@ -71,6 +71,24 @@ public class MainController {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
 		}
+		
+		// HttpSession에서 "user"라는 키로 저장된 값을 가져옴
+		UserVO user = (UserVO) session.getAttribute("user");
+		
+		// 로그인 여부 확인
+		if (user != null) {
+		    System.out.println("유저 아이디: " + user.getUser_id());
+		} else {
+		    System.out.println("로그인되지 않은 상태입니다.");
+		}
+		
+		// 유저가 가입한 스터디 중 하나(가장 최근에 가입한 study_cd) 취득
+		int joined_study_cd = userMapper.selectJoinedStudyCdByEmail(user.getUser_id());
+		// 가입한 study_cd를 세션에 등록
+		session.setAttribute("joined_study_cd", joined_study_cd);
+		
+		System.out.println("joined_study_cd: " + joined_study_cd);
+		
 		return "mystudy";
 	}
 
