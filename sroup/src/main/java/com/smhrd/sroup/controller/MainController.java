@@ -137,15 +137,4 @@ public class MainController {
 		return "recommend";
 	}
 
-	// 로그인 기능 테스트 화면
-//	@GetMapping("/로그인기능")
-//	public String loginFeature() {
-//		return "로그인기능";
-//	}
-	
-
 }
-
-// 화면 전환 GET 방식 end ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-// 화면 전환 POST 방식 start ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
