@@ -25,37 +25,6 @@
 		VALUES (#{user_id}, #{user_pw}, #{user_name}, #{user_phone});
 	</insert>
 
-	<!-- 내가 가입한 스터디 목록 조회 -->
-	<select id="selectJoinedStudies" parameterType="string"
-		resultType="com.smhrd.sroup.model.UserVO">
-		SELECT
-		sm.study_cd,
-		s.study_title,
-		s.study_content,
-		s.closed_at,
-		s.study_limit,
-		COALESCE(members.current_members, 0) AS current_members
-		FROM
-		tb_study_member
-		JOIN
-		tb_study s ON sm.study_cd = s.study_cd
-		LEFT JOIN (
-		SELECT
-		study_cd,
-		COUNT(*) AS current_members
-		FROM
-		tb_study_member
-		WHERE
-		status = 'JOINED'
-		GROUP BY
-		study_cd
-		) members ON sm.study_cd = members.study_cd
-		WHERE
-		sm.user_id = #{user_id}
-		AND sm.status = 'JOINED'
-		GROUP BY
-		sm.study_cd, s.study_title, s.study_content, s.closed_at, s.study_limit;
-	</select>
 
 	<!-- 내가 가입한 스터디 조회 (마이 페이지 - 마이 보드) 로그인 한 회원이 현재 가입되어 있는 스터디 중, 가장 최근에 가입한 
 		스터디 1건의 study_cd 정보 취득 (tb_study_member의 status가 'JOINED'인 study_cd) -->
