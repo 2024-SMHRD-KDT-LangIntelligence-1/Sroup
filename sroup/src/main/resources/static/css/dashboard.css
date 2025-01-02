@@ -273,6 +273,57 @@ textarea {
     border: 2px solid #ddd;
     border-radius: 32px;
 }
+/* 마인드맵 대시보드*/
+#dashboard-section {
+    border: 3px solid #6c757d; /* Gray border for overall dashboard */
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
+#dashboard-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.node-dashboard {
+    flex: 1 1 calc(33.333% - 10px); /* Adjust the width for three columns */
+    border: 2px solid #007BFF; /* Blue border for visibility */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.node-dashboard h5 {
+    margin: 0 0 10px;
+    color: #007BFF;
+}
+
+.node-dashboard input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.node-dashboard div {
+    margin-top: 10px;
+}
+
+.save-button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+}
 
 
