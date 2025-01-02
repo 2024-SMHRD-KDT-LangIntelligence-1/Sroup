@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.smhrd.sroup.model.StudyVO;
 import com.smhrd.sroup.model.UserVO;
 
 @Mapper
 public interface UserMapper {
 
 	UserVO login(UserVO uservo);
-	
-	// 내가 가입한 스터디 목록 조회
-    List<UserVO> selectJoinedStudies(String user_id);
 
+	// 내가 가입한 스터디 목록 조회
+	List<UserVO> selectJoinedStudies(String user_id);
+
+//	// 특정 스터디 정보 조회
+//	StudyVO selectStudyById(String studyId);
+//}
 }

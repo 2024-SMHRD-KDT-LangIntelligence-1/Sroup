@@ -1,81 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SROUP</title>
-
-    <link rel="stylesheet" href="/css/5.groupinvolve.css">
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SROUP</title>
+<link rel="stylesheet" href="/css/5.groupinvolve.css">
 </head>
 <body>
-    <header>
-        <h1 href="/html/3.main-in.html" id="home-link">SROUP</h1>
-        <nav>
-            <button onclick="location.href='edit-profile.html'">마이페이지</button>
-            <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
-    </nav>
-    </header>
-    <main>
-        <div class="content-header">
-            현업 전문가와 함께하는 진짜 IT 스터디 모임 🎉
-        </div>
-        <div class="project-info">
-            <p>모집 구분: 스터디</p>
-            <p>모집 일정: 진행 예정</p>
-            <p>연락 방법: 오픈채팅</p>
-            <p>모집 방식: 온라인</p>
-            <p>진행 방식: 전체</p>
-            <p>시작 예정일: 2025.02.28</p>
-            <p>예상 기간: 기간 미정</p>
-            <p>사용 언어: <span>Python</span> <span>JavaScript</span> <span>Java</span></p>
-            <div class="form-group">
-                <button type="submit">참여하기</button>
-                <button type="button" onclick="history.back();">목록</button>
-            </div>
-        </div>
-        
-        <div class="comment-section">
-            <h3>댓글</h3>
-            <textarea id="comment-input" placeholder="댓글을 입력하세요..."></textarea>
-            <button id="submit-comment">댓글 등록</button>
-            <ul id="comment-list"></ul>
-        </div>
-    </main>
+	<header>
+		<h1 th:href="@{/html/3.main-in.html}" id="home-link">SROUP</h1>
+		<nav>
+			<button onclick="location.href='/mystudy.html'">마이페이지</button>
+			<button id="logout">로그아웃</button>
+		</nav>
+	</header>
+	<main>
+		<div class="content-header">
+			<h2 th:text="${study.studyTitle}?: '스터디 제목 없음'">스터디 제목</h2>
+		</div>
+		<div class="project-info">
+			<p>
+				<strong>스터디 고유코드:</strong> <span th:text="${study.studyCd}">스터디
+					고유코드</span>
+			</p>
+			<p>
+				<strong>스터디 제목:</strong> <span th:text="${study.studyTitle}">스터디
+					제목</span>
+			</p>
+			<p>
+				<strong>스터디 내용:</strong> <span th:text="${study.studyContent}">스터디
+					내용</span>
+			</p>
+			<p>
+				<strong>작성자 아이디:</strong> <span th:text="${study.userId}">작성자
+					아이디</span>
+			</p>
+			<p>
+				<strong>모집 인원:</strong> <span th:text="${study.currentMembers ?: 0}">현재
+					인원</span> / <span th:text="${study.studyLimit}">최대 인원</span>
+			</p>
+			<p>
+				<strong>모집 마감 날짜:</strong> <span th:text="${study.closedAt}">모집
+					마감 날짜</span>
+			</p>
+			<p>
+				<strong>모집 상태:</strong> <span th:text="${study.studyStatus}">모집
+					상태</span>
+			</p>
+			<p>
+				<strong>등록 일자:</strong> <span th:text="${study.createdAt}">등록
+					일자</span>
+			</p>
+		</div>
+		<div class="form-group">
+			<button type="submit">참여하기</button>
+			<button type="button" onclick="history.back();">목록</button>
+		</div>
 
-    <script>
+		<div class="comment-section">
+			<h3>댓글</h3>
+			<textarea id="comment-input" placeholder="댓글을 입력하세요..."></textarea>
+			<button id="submit-comment">댓글 등록</button>
+			<ul id="comment-list">
+				<li th:each="comment : ${comments}" th:text="${comment}">댓글 내용</li>
+			</ul>
+		</div>
+	</main>
+
+	<script>
         document.addEventListener("DOMContentLoaded", () => {
-    // 로그아웃 버튼 클릭 시 화면 전환
-    const logoutButton = document.getElementById("logout");
-    logoutButton.addEventListener("click", () => {
-        window.location.href = "/login"; // 로그아웃 후 이동할 URL
-    });
+            const submitCommentButton = document.getElementById("submit-comment");
+            const commentInput = document.getElementById("comment-input");
+            const commentList = document.getElementById("comment-list");
 
-    // 댓글 등록 기능
-    const submitCommentButton = document.getElementById("submit-comment");
-    const commentInput = document.getElementById("comment-input");
-    const commentList = document.getElementById("comment-list");
+            submitCommentButton.addEventListener("click", () => {
+                const commentText = commentInput.value.trim();
+                if (commentText) {
+                    const newComment = document.createElement("li");
+                    newComment.textContent = commentText;
+                    commentList.appendChild(newComment);
+                    commentInput.value = ""; // 입력창 초기화
+                } else {
+                    alert("댓글을 입력하세요!");
+                }
+            });
 
-    submitCommentButton.addEventListener("click", () => {
-        const commentText = commentInput.value.trim();
-        if (commentText) {
-            const newComment = document.createElement("li");
-            newComment.textContent = commentText;
-            commentList.appendChild(newComment);
-            commentInput.value = ""; // 입력창 초기화
-        } else {
-            alert("댓글을 입력하세요!");
-        }
-    });
-});
+            const logoutButton = document.getElementById("logout");
+            if (logoutButton) {
+                logoutButton.addEventListener("click", () => {
+                    window.location.href = "/login";
+                });
+            }
 
-        // SROUP 링크 클릭 시 화면 전환 처리
-        document.getElementById('home-link').addEventListener('click', function (event) {
-            event.preventDefault(); // 기본 링크 동작 방지
-            window.location.href = '3.main-in.html'; // 이동할 페이지 URL
+            const homeLink = document.getElementById('home-link');
+            if (homeLink) {
+                homeLink.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    window.location.href = '3.main-in.html';
+                });
+            }
         });
-
-
     </script>
 </body>
 </html>

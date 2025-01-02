@@ -3,60 +3,86 @@ package com.smhrd.sroup.model;
 import java.sql.Timestamp;
 
 public class StudyVO {
-    private int study_cd;          // 스터디 고유 코드
-    private String study_title;    // 스터디 제목
-    private String study_content;  // 스터디 내용
-    private Timestamp closed_at;   // 모집 마감 날짜
-    private int study_limit;       // 모집 인원
-    private int current_members;   // 현재 멤버 수
+    private int studyCd;           // 스터디 고유 코드
+    private String studyTitle;     // 스터디 제목
+    private String studyContent;   // 스터디 내용
+    private String userId;         // 작성자 아이디
+    private int studyLimit;        // 모집 인원
+    private Timestamp closedAt;    // 모집 마감 날짜
+    private String studyStatus;    // 모집 상태
+    private Timestamp createdAt;   // 등록 일자
+    private int currentMembers; // 현재 가입된 멤버 수
 
-    // Getters and Setters
-    public int getStudy_cd() {
-        return study_cd;
+    public int getCurrentMembers() {
+        return currentMembers;
     }
 
-    public void setStudy_cd(int study_cd) {
-        this.study_cd = study_cd;
+    public void setCurrentMembers(int currentMembers) {
+        this.currentMembers = currentMembers;
+    }
+    
+    public int getStudyCd() {
+        return studyCd;
     }
 
-    public String getStudy_title() {
-        return study_title;
+    public void setStudyCd(int studyCd) {
+        this.studyCd = studyCd;
     }
 
-    public void setStudy_title(String study_title) {
-        this.study_title = study_title;
+    public String getStudyTitle() {
+        return studyTitle;
     }
 
-    public String getStudy_content() {
-        return study_content;
+    public void setStudyTitle(String studyTitle) {
+        this.studyTitle = studyTitle;
     }
 
-    public void setStudy_content(String study_content) {
-        this.study_content = study_content;
+    public String getStudyContent() {
+        return studyContent;
     }
 
-    public Timestamp getClosed_at() {
-        return closed_at;
+    public void setStudyContent(String studyContent) {
+        this.studyContent = studyContent;
     }
 
-    public void setClosed_at(Timestamp closed_at) {
-        this.closed_at = closed_at;
+    public String getUserId() {
+        return userId;
     }
 
-    public int getStudy_limit() {
-        return study_limit;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setStudy_limit(int study_limit) {
-        this.study_limit = study_limit;
+    public int getStudyLimit() {
+        return studyLimit;
     }
 
-    public int getCurrent_members() {
-        return current_members;
+    public void setStudyLimit(int studyLimit) {
+        this.studyLimit = studyLimit;
     }
 
-    public void setCurrent_members(int current_members) {
-        this.current_members = current_members;
+    public Timestamp getClosedAt() {
+        return closedAt;
+    }
+
+    public void setClosedAt(Timestamp closedAt) {
+        this.closedAt = closedAt;
+    }
+
+    public String getStudyStatus() {
+        return studyStatus;
+    }
+
+    public void setStudyStatus(String studyStatus) {
+        this.studyStatus = studyStatus;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 }
 

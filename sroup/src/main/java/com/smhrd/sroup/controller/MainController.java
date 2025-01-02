@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.sroup.mapper.UserMapper;
@@ -118,6 +119,11 @@ public class MainController {
 		}
 		return "recommend";
 	}
+	
+//	@GetMapping("/recommend")
+//    public String recommendPage() {
+//        return "recommend"; // recommend.html을 렌더링
+//    }
 
 	// 로그인 기능 테스트 화면
 //	@GetMapping("/로그인기능")
