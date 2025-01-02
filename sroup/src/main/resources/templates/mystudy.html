@@ -69,7 +69,19 @@
             <div class="popup-overlay"></div>
             <div class="popup" id="popup2">
                 <h2>알림 </h2>
-                <p> 알림 내용 </p>
+                <p> 
+                	<table>
+                        <tr>
+                            <td> 25.01.02 </td>
+                            <td> 탈퇴 멤버 000 님 리뷰를 남겨주세요! </td>
+                            <td></td>
+                            <td> 
+                                <!-- <button onclick="location.href='review.html'">바로가기</button> </td> -->
+                                <button onclick="reviewpopup()">바로가기</button> 
+                            </td>
+                        </tr>
+                	</table>     
+                </p>
             </div>
 
             <div class="tab-study" id="tab2-3">
@@ -102,7 +114,11 @@
             </div>
             
             
-            <div class="tab-study" id="tab2-5"> 수행률</div>
+            <div class="tab-study" id="tab2-5"> 
+            	<div class="tab-study" id="tab2-5-1"> 수행률 </div>
+                <canvas id="progresschart" style="height: 10vh" ></canvas>
+            </div>
+            
             <div class="tab-study" id="tab2-6">
                 <div>
                     <div class="calendar">
@@ -126,7 +142,6 @@
             </div>
 
 
-            <div class="tab-study" id="tab2-7"> 달성률</div>
             <img id="tab2-8" src="https://ghchart.rshah.org/082918"/>
         </div>
 

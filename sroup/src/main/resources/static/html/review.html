@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review</title>
+
+    <link rel="stylesheet" href="/css/history.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/review.css">
+</head>
+<body>
+
+    <!-- 상단 바-->
+    <header>
+        <div class="logo">SROUP</div>
+    </header>
+
+    <!-- dashboard -->
+    <div class="review-container">
+        <div class = "whos" id="whotex">
+            탈퇴한 스터디 그룹원</br>
+            XXX님의 리뷰를 남겨주세요!
+            </br>
+            <hr/>
+        </div>
+        <div class="keyword-container">
+            <div class="keyword-category">
+              <h4>성실도</h4>
+              <button class="keyword-button">😍</button>
+              <button class="keyword-button">🥰</button>
+              <button class="keyword-button">😄</button>
+              <button class="keyword-button">😁</button>
+              <button class="keyword-button">😃</button>
+            </div>
+            <div class="keyword-category" >
+              <h4>참여도</h4>
+              <button class="keyword-button">😍</button>
+              <button class="keyword-button">🥰</button>
+              <button class="keyword-button">😄</button>
+              <button class="keyword-button">😁</button>
+              <button class="keyword-button">😃</button>
+            </div>
+        </div>
+
+        <div>
+            <button class="review-upload" id-="review-upload">등록하기</button>
+        </div> 
+    </div>
+
+    <script>
+        // 모든 버튼에 클릭 이벤트 추가
+        const buttons = document.querySelectorAll('.keyword-button');
+      
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            // 해당 버튼의 부모 요소(.keyword-category) 찾기
+            const category = button.parentElement;
+
+            // 해당 카테고리 안의 모든 버튼에서 active 클래스 제거
+            category.querySelectorAll('.keyword-button').forEach(btn => btn.classList.remove('active'));
+
+            // active 클래스 토글
+            button.classList.toggle('active');
+          });
+        });
+
+        // 리뷰 창 끄기
+        const uploadbtn = document.querySelector(".review-upload");
+
+        uploadbtn.addEventListener("click", ()=> {
+            window.close();
+        });
+
+      </script>
+</body>
+</html>

@@ -254,5 +254,57 @@ var config = {
 
     var gaugeChart = new Chart(chartCtx, config);
     
+	// 리뷰 팝업
+	function reviewpopup() {
+		window.open(
+			"/html/review.html", 
+			"RIVIEW", 
+			"width=800, height=1300"
+		);
+	}
+
+
+	    // progress chart (달성률 차트)
+	    document.addEventListener("DOMContentLoaded", ()=> {
+	        const gresschart = document.getElementById("progresschart").getContext("2d");
+
+	        // 진행률 데이터 
+	        const gressvalue = 70;
+
+	        const progresschart = new Chart(gresschart, {
+	            type: "bar",
+	            data: {
+	                labels: ['진행률'], // X축 라벨
+	                datasets: [{
+	                    data: [gressvalue], // 진행률 값 
+	                    backgroundColor: ['#4CAF50'], // 진행된 부분 색상
+	                    borderColor: ['#4CAF50'], // 진행된 부분 테두리 색상
+	                    borderWidth: 1,
+	                    barThickness: 30, // 막대 두께
+	                }]
+	            },
+
+	            options: {
+	                indexAxis: 'y', // 수평 막대 차트
+	                responsive: true,
+	                plugins: {
+	                legend: { display: false }, // 범례 비활성화
+	                tooltip: { enabled: false } // 툴팁 비활성화
+	                },
+	                scales: {
+	                x: {
+	                max: 100, // 100% 기준
+	                beginAtZero: true, // 0%에서 시작
+	                grid: { display: false }, // X축 격자 제거
+	                ticks: { display: false } // X축 숫자 숨김
+	                },
+	                y: {
+	                grid: { display: false }, // Y축 격자 제거
+	                ticks: { display: false } // Y축 라벨 숨김
+	                }}         
+	            }
+
+	        })
+	    });
 
     
