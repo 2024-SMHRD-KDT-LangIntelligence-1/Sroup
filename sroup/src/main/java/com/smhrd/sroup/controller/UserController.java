@@ -57,6 +57,15 @@ public class UserController {
 
 		 //return "redirect:/";
 	}
+	
+	// 로그아웃 처리
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();	// 세션 무효화
+		
+		return "redirect:/";	// 3-1.main-out.html과 매핑된 경로로 이동.
+	}
 
 	// 마이페이지 - 정보 수정 처리
 	// TODO 기능 구현하기

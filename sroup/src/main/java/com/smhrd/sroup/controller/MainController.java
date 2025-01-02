@@ -57,12 +57,36 @@ public class MainController {
 	    return "4.groupgenerate"; // 로그인한 경우 4.groupgenerate.html 렌더링
 	}
 
-	// 마이 페이지 화면
+	// 마이 페이지 화면 - 회원정보 수정 - 회원정보 표시
 	@GetMapping("/edit-profile")
+<<<<<<< HEAD
 	public String editProfilePage(HttpSession session) {
+=======
+	public String editProfile(HttpSession session, Model model) {
+		
+		// HttpSession에서 "user"라는 키로 저장된 값을 가져옴
+		UserVO user = (UserVO) session.getAttribute("user");
+
+		// 로그인 여부 확인
+		if (user != null) {
+			System.out.println("유저 아이디: " + user.getUser_id());
+		} else {
+			System.out.println("로그인되지 않은 상태입니다.");
+		}
+
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-LangIntelligence-1/Sroup.git
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
 		}
+
+		// DB에서 유저 정보 가져오기(세션에서 넘겨받은 id 값으로 tb_user에서 select)
+		// user_id, user_pw, user_name, user_phone, user_profile_img
+		UserVO selectedUserVO =  userMapper.selectLoginUser(user.getUser_id());
+		System.out.println("selectedUserVO: " + selectedUserVO);
+		
+		// 뷰로 데이터 전달
+	    model.addAttribute("user", selectedUserVO);
+
 		return "edit-profile";
 	}
 
@@ -148,15 +172,4 @@ public class MainController {
 	}
 	
 
-	// 로그인 기능 테스트 화면
-//	@GetMapping("/로그인기능")
-//	public String loginFeature() {
-//		return "로그인기능";
-//	}
-	
-
 }
-
-// 화면 전환 GET 방식 end ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-// 화면 전환 POST 방식 start ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓

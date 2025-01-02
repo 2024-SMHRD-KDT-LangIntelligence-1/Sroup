@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,22 +12,30 @@
   <header>
     <div class="logo">SROUP</div>
     <div>
+<<<<<<< HEAD
         <button onclick="location.href='/groupgenerate'">그룹생성</button>
         <button onclick="location.href='/edit-profile'">마이페이지</button>
         <button onclick="location.href='/3-1.main-out'">로그아웃</button>
+=======
+        <button onclick="location.href='4.groupgenerate.html'">그룹생성</button>
+        <button onclick="location.href='edit-profile.html'">마이페이지</button>
+        <form action="/logout" method="post" style="display: inline;">
+				<button type="submit">로그아웃</button>
+		</form>
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-LangIntelligence-1/Sroup.git
     </div>
 </header>
         <!-- 사이드바 -->
     <div id="sidebar" class="sidebar">
         <ul>
             <li>
-                <a href="/edit-profile">회원정보 수정</a>
+                <a href="/html/edit-profile.html">회원정보 수정</a>
             </li>
             <li>
-                <a href="/history">이력 조회</a>
+                <a href="/html/history.html">이력 조회</a>
             </li>
             <li>
-                <a href="/mystudy">내스터디</a>
+                <a href="/html/mystudy.html">내스터디</a>
             </li>
         </ul>
     </div>
@@ -43,8 +51,8 @@
     <div class="header">
       <img src="profile-placeholder.png" alt="프로필 사진">
       <div>
-        <div class="name">박승혁</div>
-        <div class="email">psh224v@naver.com</div>
+        <div class="name" th:text="${user.user_name}">박승혁</div>
+        <div class="email" th:text="${user.user_id}">psh224v@naver.com</div>
       </div>
     </div>
 
@@ -53,11 +61,15 @@
       <h2>기본 정보</h2>
       <div class="form-group">
         <label for="email">이메일</label>
-        <input type="email" id="email" value="psh224v@naver.com" disabled>
+        <input type="email" id="email" th:value="${user.user_id}" disabled>
       </div>
       <div class="form-group">
         <label for="phone">전화번호</label>
-        <input type="text" id="phone" value="+82 10-1234-5678" disabled>
+        <input type="text" id="phone" th:value="${user.user_phone}" disabled>
+      </div>
+      <div class="form-group">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" placeholder="비밀번호를 입력하세요" disabled>
       </div>
     </div>
 
@@ -102,37 +114,27 @@
         }
     }    
 
-    function htclick() {
-        var hth1 = document.getElementById("hth-1");
-
-        hth
-    }
-
     // 정보 수정 활성화
     function enableEditing() {
-      const inputs = document.querySelectorAll("input, select");
-      inputs.forEach(input => input.disabled = false);
+      const passwordInput = document.getElementById("password");
+      passwordInput.disabled = false;
     }
 
     // 변경 사항 저장
     function saveChanges() {
-      const email = document.getElementById("email").value;
-      const phone = document.getElementById("phone").value;
-      const promotion = document.getElementById("promotion").value;
-      const notifications = document.getElementById("notifications").value;
+      const password = document.getElementById("password").value;
 
-      if (!email || !phone) {
-        alert("모든 필드를 입력해주세요.");
+      if (!password) {
+        alert("비밀번호를 입력해주세요.");
         return;
       }
 
       alert("정보가 성공적으로 저장되었습니다!\n" +
-            `이메일: ${email}\n전화번호: ${phone}\n` +
-            `프로모션 수신: ${promotion}\n게시물 알림: ${notifications}`);
+            `비밀번호: ${password}`);
 
       // 저장 후 다시 비활성화
-      const inputs = document.querySelectorAll("input, select");
-      inputs.forEach(input => input.disabled = true);
+      const passwordInput = document.getElementById("password");
+      passwordInput.disabled = true;
     }
   </script>
 </body>

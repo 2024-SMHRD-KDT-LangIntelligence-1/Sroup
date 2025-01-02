@@ -11,4 +11,5 @@ public class UserKeywordVO {
 
 	private String user_id;
 	private int keyword_cd;
+
 }
