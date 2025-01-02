@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,9 @@
     <div>
         <button onclick="location.href='4.groupgenerate.html'">그룹생성</button>
         <button onclick="location.href='edit-profile.html'">마이페이지</button>
-        <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
+        <form action="/logout" method="post" style="display: inline;">
+				<button type="submit">로그아웃</button>
+		</form>
     </div>
 </header>
         <!-- 사이드바 -->
@@ -43,8 +45,8 @@
     <div class="header">
       <img src="profile-placeholder.png" alt="프로필 사진">
       <div>
-        <div class="name">박승혁</div>
-        <div class="email">psh224v@naver.com</div>
+        <div class="name" th:text="${user.user_name}">박승혁</div>
+        <div class="email" th:text="${user.user_id}">psh224v@naver.com</div>
       </div>
     </div>
 
@@ -53,11 +55,11 @@
       <h2>기본 정보</h2>
       <div class="form-group">
         <label for="email">이메일</label>
-        <input type="email" id="email" value="psh224v@naver.com" disabled>
+        <input type="email" id="email" th:value="${user.user_id}" disabled>
       </div>
       <div class="form-group">
         <label for="phone">전화번호</label>
-        <input type="text" id="phone" value="+82 10-1234-5678" disabled>
+        <input type="text" id="phone" th:value="${user.user_phone}" disabled>
       </div>
       <div class="form-group">
         <label for="password">비밀번호</label>

@@ -6,6 +6,9 @@
 		type="com.smhrd.sroup.model.UserVO">
 		<id property="user_id" column="user_id" />
 		<result property="user_pw" column="user_pw" />
+		<result property="user_name" column="user_name" />
+	    <result property="user_phone" column="user_phone" />
+	    <result property="user_profile_img" column="user_profile_img" />
 	</resultMap>
 
 	<!-- 로그인  -->
@@ -64,6 +67,16 @@
 		WHERE user_id = #{user_id} AND status = 'JOINED'
 		ORDER BY joined_at DESC
 		LIMIT 1;
+	</select>
+	
+	<!-- 마이 페이지 화면 - 회원정보 수정
+	로그인한 회원의 정보 취득 (user_id, user_pw, user_name, user_phone, user_profile_img)
+	 -->
+	<select id="selectLoginUser" parameterType="string"
+	 resultMap="UserResultMap">
+		SELECT user_id, user_pw, user_name, user_phone, user_profile_img
+		from tb_user
+		where user_id = #{user_id};
 	</select>
 	
 </mapper>
