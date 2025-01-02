@@ -37,10 +37,11 @@
     <header>
         <div class="logo">SROUP</div>
         <div>
-            <button onclick="location.href='login.html';">로그인</button>
             <button onclick="location.href='create_group.html';">그룹생성</button>
             <button onclick="location.href='mypage.html';">마이페이지</button>
-            <button onclick="location.href='logout.html';">로그아웃</button>
+            <form action="/logout" method="post" style="display: inline;">
+				<button type="submit">로그아웃</button>
+			</form>
         </div>
     </header>
 
