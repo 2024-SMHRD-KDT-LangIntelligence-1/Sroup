@@ -1,5 +1,6 @@
 package com.smhrd.sroup.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api")
@@ -26,4 +29,16 @@ public class FlaskRestController {
         // Flask 응답 반환
         return ResponseEntity.ok(response.getBody());
     }
+    
+    @PostMapping("/saveSession")
+    public String saveSession(@RequestBody Map<String, List<String>> data, HttpSession session) {
+    	System.out.println(data.get("title"));
+
+    	for(int i = 0; i<5; i++) {
+    		
+    		session.setAttribute("data"+i, data.get("title").get(i)); // 첫 번째 제목
+    	}
+        return "result";
+    }
+    
 }
