@@ -47,8 +47,8 @@ public class UserController {
 	    if (vo != null) {
 	    	// 세션에 사용자 정보 저장
 	        session.setAttribute("user", vo);
-	        return "3.main-in";		// 로그인 성공 후 3.main-in.html로 이동 
-	        //return "redirect:/"; // 로그인 성공 후 메인 페이지로 리다이렉트
+	        
+	        return "redirect:/login.do"; // MainController로 리다이렉트
 	    } else {
 	    	// 로그인 실패 시 에러 메세지 전달
 	        model.addAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");

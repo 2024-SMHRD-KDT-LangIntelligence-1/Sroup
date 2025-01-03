@@ -22,5 +22,8 @@ public interface StudyMapper {
 //
 //	StudyVO selectStudyById(int studyCd);
 	List<StudyVO> selectJoinedStudies(String userId);
+	
+	// 인기 스터디 조회(1건)
+	StudyVO getPopularStudyByStudyCd(int study_cd);
 
 }

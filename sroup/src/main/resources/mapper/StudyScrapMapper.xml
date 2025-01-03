@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.sroup.mapper.StudyScrapMapper">
+
+	<!-- 가장 많이 스크랩된 스터디 게시글 top 5의 study_cd -->
+	<select id="getMostPopularStudiesCdTop" parameterType="int"
+		resultType="int">
+		SELECT study_cd, COUNT(*) AS scrap_count
+		FROM tb_study_scrap
+		GROUP BY study_cd
+		ORDER BY scrap_count DESC
+		LIMIT #{topNum};
+	</select>
+
+
+</mapper>
