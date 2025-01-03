@@ -103,15 +103,7 @@ public class StudyController {
 //        return "3-1.main-out"; // 목록 페이지 템플릿 반환
 //    }
 
-    
-
-    // 로그아웃 처리
-    @PostMapping("/logout")
-    @ResponseBody
-    public String logout(HttpSession session) {
-        session.invalidate(); // 세션 무효화
-        return "로그아웃 성공";
-    }
+   
 
     // 댓글 등록 처리
     @PostMapping("/api/comments")

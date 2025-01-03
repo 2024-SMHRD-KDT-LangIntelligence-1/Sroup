@@ -2,6 +2,7 @@ package com.smhrd.sroup.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,7 +50,7 @@ public class MainController {
 	}
 
 	// 그룹 생성 화면
-	@GetMapping("/4.groupgenerate")
+	@GetMapping("/groupgenerate")
 	public String groupGeneratePage(HttpSession session) {
 	    if (session.getAttribute("user") == null) {
 	        return "redirect:/3-1.main-out"; // 로그인하지 않은 경우 3-1.main-out.html로 리다이렉트
@@ -59,9 +60,6 @@ public class MainController {
 
 	// 마이 페이지 화면 - 회원정보 수정 - 회원정보 표시
 	@GetMapping("/edit-profile")
-<<<<<<< HEAD
-	public String editProfilePage(HttpSession session) {
-=======
 	public String editProfile(HttpSession session, Model model) {
 		
 		// HttpSession에서 "user"라는 키로 저장된 값을 가져옴
@@ -74,7 +72,6 @@ public class MainController {
 			System.out.println("로그인되지 않은 상태입니다.");
 		}
 
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-LangIntelligence-1/Sroup.git
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
 		}
