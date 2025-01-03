@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRUOP</title>
 
-    <link rel="stylesheet" href="/static/css/history.css">
-    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="/css/history.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 
-    <script src="/static/js/dashboard.js"></script>
+    <script src="/js/dashboard.js"></script>
 </head>
 <body>
     <!-- 사이드바 -->
     <div id="sidebar" class="sidebar">
         <ul>
             <li>
-                <a href="#">회원정보 수정</a>
+                <a href="/edit-profile">회원정보 수정</a>
             </li>
             <li>
-                <a href="/templates/history.html">이력 조회</a>
+                <a href="/history">이력 조회</a>
             </li>
             <li>
-                <a href="/templates/mystudy.html">내스터디</a>
+                <a href="/mystudy">내스터디</a>
             </li>
         </ul>
     </div>
@@ -37,8 +37,8 @@
     <header>
         <div class="logo">SROUP</div>
         <div>
-            <button onclick="location.href='create_group.html';">그룹생성</button>
-            <button onclick="location.href='mypage.html';">마이페이지</button>
+            <button onclick="location.href='/groupgenerate';">그룹생성</button>
+            <button onclick="location.href='/edit-profile';">마이페이지</button>
             <form action="/logout" method="post" style="display: inline;">
 				<button type="submit">로그아웃</button>
 			</form>
