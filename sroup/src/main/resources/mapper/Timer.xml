@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.sroup.mapper.TimerMapper">
+    
+    <!-- 타이머  -->
+    <insert id="StudyTimerMapper" parameterType="com.smhrd.sroup.model.TimerVO">
+    INSERT INTO tb_learning_time (user_id, st_tm, ed_tm, duration)
+    VALUES (#{user_id}, #{st_tm}, #{ed_tm}, #{duration})
+	</insert>
+
+    
+</mapper>

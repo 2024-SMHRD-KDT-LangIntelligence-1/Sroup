@@ -1,5 +1,8 @@
 package com.smhrd.sroup.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.smhrd.sroup.mapper.StudyMapper;
+import com.smhrd.sroup.mapper.StudyScrapMapper;
 import com.smhrd.sroup.mapper.UserMapper;
+import com.smhrd.sroup.model.StudyVO;
 import com.smhrd.sroup.model.UserVO;
 
 import jakarta.servlet.http.HttpSession;
@@ -25,6 +31,12 @@ public class MainController {
 	
 	@Autowired
 	UserMapper userMapper;
+	
+	@Autowired
+	StudyScrapMapper studyScrapMapper;
+	
+	@Autowired
+	StudyMapper studyMapper;
 
 	// 메인화면
 	@GetMapping("/")
@@ -168,5 +180,33 @@ public class MainController {
 		return "recommend";
 	}
 	
+	// 메인 페이지 표시 (로그인 후) 
+	@GetMapping("/login.do")
+	public String showMainPage(HttpSession session, Model model) {
+
+		if (session.getAttribute("user") == null) {
+			return "redirect:/login";
+		}
+		
+	    // Mapper 주입 상태 확인
+	    if (studyScrapMapper == null) {
+	        System.out.println("StudyScrapMapper is null. Check configuration!");
+	    } else {
+	        System.out.println("StudyScrapMapper is properly injected.");
+	    }
+		
+	    // 가장 인기있는 스터디 top5의 study_cd 리스트
+		List<Integer> popularStudies5 = studyScrapMapper.getMostPopularStudiesCdTop(5);
+		model.addAttribute("popularStudies5", popularStudies5);
+		
+		List<StudyVO> studies5 = new ArrayList<>();
+		for (int i = 0; i < popularStudies5.size(); i++) {
+			studies5.add(studyMapper.getPopularStudyByStudyCd(popularStudies5.get(i)));
+		}
+		
+		model.addAttribute("studies5", studies5);
+
+		return "3.main-in";
+	}
 
 }

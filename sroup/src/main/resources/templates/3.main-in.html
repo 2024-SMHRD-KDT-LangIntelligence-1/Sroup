@@ -65,15 +65,9 @@
                 <button onclick="location.href='/popularity'">더보기</button>
             </div>
             <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[버터링팀초코]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+                <div class="study-card" th:each="study : ${studies5}" onclick="location.href='/5.groupinvolve'">
+                     <h2 th:text="${study.studyTitle}"></h2>
                 </div>
-                <div class="study-card" onclick="location.href='study11.html';"></div>
-                <div class="study-card" onclick="location.href='study12.html';"></div>
-                <div class="study-card" onclick="location.href='study13.html';"></div>
-                <div class="study-card" onclick="location.href='study14.html';"></div>
-
             </div>
         </div>
         <div class="section">
