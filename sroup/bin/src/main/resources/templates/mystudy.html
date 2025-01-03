@@ -7,131 +7,268 @@
 
     <link rel="stylesheet" href="/css/history.css">
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/member.css">
 
+
+    <script src="/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- gaugechart -->
     <!-- 마인드맵 test -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.1/cytoscape.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.4/index.global.min.js"></script>
 </head>
 <body>
-    <!-- 사이드바 -->
-    <div id="sidebar" class="sidebar">
-        <ul>
-            <li>
-                <a href="/edit-profile">회원정보 수정</a>
-            </li>
-            <li>
-                <a href="/history">이력 조회</a>
-            </li>
-            <li>
-                <a href="/mystudy">내스터디</a>
-            </li>
-        </ul>
-    </div>
-    <!-- 사이드바 끝-->
-
-    <!-- 사이드바 외 본문 시작 -->
-    <div id="main">
-        <button class="sidebar-btn" onclick="Sidebar_move()">☰</button>
-    </div>
-    <!-- 사이드바 외 본문 시작 끝 -->
-
-    <!-- 상단 바-->
-    <header>
-        <div class="logo">SROUP</div>
-        <div>
-            <button onclick="location.href='/groupgenerate'">그룹생성</button>
-            <button onclick="location.href='/edit-profile'">마이페이지</button>
-            <button onclick="location.href='3-1.main-out.html'">로그아웃</button>
-        </div>
-    </header>
-
-    <!-- dashboard -->
-    <div class="tab-container">
-        <ul class="tabs">
-            <li class="tab" data-tab="tab1">Group Board</li>
-            <li class="tab" data-tab="tab2">My Board</li>
-            <li class="tab" data-tab="tab3">Member</li>
-        </ul>
-
-        <div class="tab-content" id="tab1" >
-            <p>그룹 대시보드 </p>
-        </div>
-        <div class="tab-content" id="tab1-1"></div>
-        <div class="tab-content" id="tab2">
-            <p>개인대시보드</p>
-        </div>
-        <div class="tab-content" id="tab3">
-            <p>멤버명단</p>
-        </div>
-    </div>  
-
-<script>
-
-    /* 사이드바 열고 닫는 JS */
-    function Sidebar_move() {
-        var sidebar = document.getElementById("sidebar");
-        var mainContent = document.getElementById("main");
-            
-        if (sidebar.style.left === "0px") {
-            sidebar.style.left = "-220px";
-            mainContent.style.marginLeft = "0";
-        } else {
-            sidebar.style.left = "0";
-            mainContent.style.marginLeft = "220px";
-        }
-    }    
     
-    document.addEventListener("DOMContentLoaded", function() {
-        var tabs = document.querySelectorAll('.tab');
-        var tabContents = document.querySelectorAll('.tab-content');
+<!-- 사이드바 -->
+        <div id="sidebar" class="sidebar">
+            <ul>
+                <li>
+                    <a href="/edit-profile">회원정보 수정</a>
+                </li>
+                <li>
+                    <a href="/history">이력 조회</a>
+                </li>
+                <li>
+                    <a href="/mystudy">내스터디</a>
+                </li>
+            </ul>
+        </div>
+<!-- 사이드바 끝-->
+    
+<!-- 사이드바 외 본문 시작 -->
+        <div id="main">
+            <button class="sidebar-btn" onclick="Sidebar_move()">☰</button>
+        </div>
+<!-- 사이드바 외 본문 시작 끝 -->
+    
+<!-- 상단 바-->
+        <header>
+            <div class="logo">SROUP</div>
+            <div>
+                <button onclick="location.href='/groupgenerate'">그룹생성</button>
+                <button onclick="location.href='/edit-profile'">마이페이지</button>
+                <form action="/logout" method="post" style="display: inline;">
+					<button type="submit">로그아웃</button>
+				</form>
+            </div>
+        </header>
+    
+<!-- dashboard -->
+        <div class="tab-container">
+            <ul class="tabs">
+                <li class="tab" data-tab="tab1">Group Board</li>
+                <li class="tab" data-tab="tab2">My Board</li>
+                <li class="tab" data-tab="tab3">Member</li>
+            </ul>
+<!-- Group Board -->
+            <div class="tab-content" id="tab1" >
+                <h3>그룹 대시보드 </h3>
+                <div id="mindmap-container" style="width: 100%; height: 400px;"></div>
+                
+                <!-- Dashboard Section -->
+                <div id="dashboard-section" style="margin-top: 20px;">
+                	<h4>챌린지 노드 별 제출 업로드</h4>
+                	<div id="dashboard-list">
+                	<!-- Individual dashboards will be generated here -->
+                	</div>
+            	</div>
+                
+                
+                <!-- 캘린더 -->
+                <div id="calendar-container"></div>
+               <!-- 스터디 랭킹 -->
+            <div id="ranking" style="margin-top: 40px;">
+                <h3>스터디 타임 랭킹</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: #f4f4f4;">
+                            <th style="border: 1px solid #ddd; padding: 8px;">순위</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">이름</th>
+                            <th style="border: 1px solid #ddd; padding: 8px;">시간(분)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-table-body">
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">1</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">김철수</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">1205</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">2</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">이영희</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">1102</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">3</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">박민수</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">985</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+            </div>
+            <div class="tab-content" id="tab2">
+                <div class="tab-study" id="tab2-1"> 
+                    <h2>STUDY TIMER</h2>
+                    <button class="timer-btn"> ON </button>
+                </div> 
+    
+                <div class="tab-study" id="tab2-2"> 
+                    <h2> 🔔 알림 | 탈퇴한 그룹원 XXX님의 리뷰를 남겨주세요! </h2> 
+                </div>
+                <div class="popup-overlay"></div>
+                <div class="popup" id="popup2">
+                    <h2>알림 </h2>
+                    <p> 
+                        <table>
+                            <tr>
+                                <td> 25.01.02 </td>
+                                <td> 탈퇴 멤버 000 님 리뷰를 남겨주세요! </td>
+                                <td></td>
+                                <td> 
+                                    <!-- <button onclick="location.href='review.html'">바로가기</button> </td> -->
+                                    <button onclick="reviewpopup()">바로가기</button> 
+                                </td>
+                            </tr>
+                        </table>     
+                    </p>
+                </div>
+    
+                <div class="tab-study" id="tab2-3">
+                    <h2 id="write-tab"> 회고록 ✏️</h2> 
+                    <div class="date-navigation">
+                        <button id="prev-date">&lt;</button>
+                        <span id="current-date"> 0000.00.00 </span> 
+                        <button id="next-date">&gt;</button>
+                    </div>
+                    <div class="study-content" id="study-content">
+                        작성된 내용이 없습니다.
+                    </div>
+                </div>
+    
+                <!-- 팝업 코드 -->
+                <div class="popup-overlay"></div>
+                <div class="popup" id="popup3">
+                    <h2> 회고록 </h2>
+                    <form class="form-horizontal" action="/write-learning-record" method="post" enctype="multipart/form-data">
+                    <div class="form-group"> 
+                        <label class="control-label col-sm-2" for="title">제목:</label>
+                          <div class="col-sm-10">
+                            <input type="text" name="learning_title" class="form-control" id="title" placeholder="제목을 입력해주세요." required>
+                           </div>
+                       </div>
+                        
+                    <p></p>
+                     <div class="form-group">
+                          <label class="control-label col-sm-2" for="content">내용:</label>
+                          <div class="col-sm-10">
+                            <textarea type="text" rows="10" name = "learning_content" class="form-control" id="content" placeholder="내용을 입력해주세요" required> </textarea>
+                          </div>
+                    </div>
+                        <button class="upload" type="submit"> 등록하기 </button>
+                    </form>
+                </div>
+    
+    
+                <div class="tab-study" id="tab2-4"> 
+                    <canvas id="gaugeChart" style="height: 40vh"></canvas>
+                </div>
+                
+                
+                <div class="tab-study" id="tab2-5"> 
+                    <div class="tab-study" id="tab2-5-1"> 수행률 </div>
+                    <canvas id="progresschart" style="height: 10vh" ></canvas>
+    
+                </div>
+    
+    
+                <div class="tab-study" id="tab2-6">
+                    <div>
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <button id="prev-month">&lt;</button>
+                                <h2 id="month-year"></h2>
+                                <button id="next-month">&gt;</button>
+                            </div>
+                            <div class="calendar-days">
+                                <div>일</div>
+                                <div>월</div>
+                                <div>화</div>
+                                <div>수</div>
+                                <div>목</div>
+                                <div>금</div>
+                                <div>토</div>
+                            </div>
+                            <div class="days" id="days-content"></div>
+                        </div>
+                    </div>
+                </div>
+                <img id="tab2-8" src="https://ghchart.rshah.org/082918"/>
+            </div>
+            </div>
+            <div class="tab-content" id="tab3">
+                <h3>멤버 리스트</h3>
+                <!--team-profile -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <img src="https://via.placeholder.com/60" alt="Profile Picture">
+                        <div class="info">
+                            <h3>박승혁</h3>
+                            <span>광주광역시 · psh224v@naver.com</span>
+                        </div>
+                    </div>
+            
+                    <div class="tags">
+                        <div class="tag">front-end</div>
+                        <div class="tag">back-end</div>
+                        <div class="tag">database</div>
+                        <div class="tag">project</div>
+                    </div>
+            
+                    <div class="content-area">
+                        <div class="content">
+                            <div class="content-title">가입한 그룹</div>
+                            <div class="content-detail">
+                                ✨파이썬 정복(기초편)✨ - 파이리는 파이썬 · 6명
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content-title">출석률</div>
+                            <div class="content-detail">
+                                12회 중 8 회 참석, 66%
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content-title">달성률</div>
+                            <div class="content-detail">
+                                챌린지 3회 차 : 72%
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="buttons">
+                        <button class="button" onclick="showDetailDashboard('박승혁', '광주광역시', '✨파이썬 정복(기초편)✨', '85%', '90%')">회원 상세정보</button>
+                        <button class="button" onclick="removeMember()">회원 내보내기</button>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    
+        <!-- 상세 대시보드 -->
+        <div id="detail-dashboard" class="detail-dashboard">
+            <h3>회원 상세정보</h3>
+            <p id="detail-name"></p>
+            <p id="detail-location"></p>
+            <p id="detail-group"></p>
+            <p id="detail-attendance"></p>
+            <p id="detail-achievement"></p>
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                var target = tab.getAttribute('data-tab');
+            <div class="record-title">
+            <button class="close-button" onclick="closeDetailDashboard()">닫기</button>
+        </div>
 
-             // 탭 선택 시 다른 탭의 내용 삭제 
-             tabContents.forEach(content => content.classList.remove('active'));
-
-             // 클릭한 탭과 해당 콘텐츠에 'active' 클래스 추가
-             tab.classList.add('active');
-             document.getElementById(target).classList.add('active');
-            });
-        });
-
-        // 기본적으로 첫 번째 탭을 활성화
-        tabs[0].classList.add('active');
-        tabContents[0].classList.add('active');
-    });
-
-</script>
-
-<!-- 마인드 맵 구현 -->
-
-<script>
-    var cy = cytoscape({
-        container: document.getElementById('mindmap-container'),
-        elements: [
-            { data: { id: 'center', label: '중심 주제' } },
-            { data: { id: 'node1', label: '주제 1', parent: 'center' } },
-            { data: { id: 'node2', label: '주제 2', parent: 'center' } },
-            { data: { source: 'center', target: 'node1' } },
-            { data: { source: 'center', target: 'node2' } }
-        ],
-        style: [
-            {
-                selector: 'node',
-                style: {
-                    'label': 'data(label)'
-                }
-            }
-        ],
-        layout: {
-            name: 'breadthfirst',
-            directed: true,
-            padding: 10
-        }
-    });
-</script>
-
-</body>
-
-</html>
+    
+    </body>
+    </html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.sroup.mapper.UserKeywordMapper">
+
+	<insert id="createUserKeyword"
+		parameterType="com.smhrd.sroup.model.UserKeywordVO">
+		INSERT INTO tb_user_keyword (user_id, keyword_cd)
+		VALUES
+		(#{user_id},
+		#{keyword_cd});
+	</insert>
+
+</mapper>

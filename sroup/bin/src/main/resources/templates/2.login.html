@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login with Extra Features</title>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/css/2.login.css">
 
 </head>
@@ -12,17 +12,21 @@
     <div class="login-container">
   
         <h1>SROUP</h1>
-          <form action="/login.do" method = "post">
-        <input type="text" id="username" name="user_id" placeholder="아이디 눌러보랑께" required />
-        <input type="password" id="password" name="user_pw" placeholder="비밀번호 눌러보랑께" required />
-        <button id="loginButton" type="submit">들어오쇼잉</button> </form>
-        <div class="extra-links">
+         <form action="/login.do" method = "post" url = "http://127.0.0.1:8083/process">
+      	<input type="text" id="username" name="user_id" placeholder="아이디 눌러보랑께" required />
+        	<input type="password" id="password" name="user_pw" placeholder="비밀번호 눌러보랑께" required />
+       	 <button id="loginButton" type="submit">들어오쇼잉</button> 
+		 </form>
+      	 
+		 
+		 
+		 
+		 <div class="extra-links">
             <a href="#" id="registerLink">가입하랑께</a>
             <a href="#" id="findIdLink">이름까먹었는가</a>
             <a href="#" id="findPasswordLink">비번알려줄까</a>
         </div>
         <p class="message" id="loginMessage"></p>
-        
     </div>
 
     <script>
@@ -31,6 +35,40 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
+			// 서버로 데이터 전송
+					    fetch('http://127.0.0.1:8083/process', {
+					        method: 'POST',
+					        headers: {
+					            'Content-Type': 'application/json',
+					        },
+					        body: JSON.stringify({ user_id: username }), // JSON 형식으로 전송
+					    })
+					        .then(response => response.json())
+					        .then(data => {
+								
+								$.ajax({
+									url: '/api/saveSession', 
+								    method: 'POST',
+									contentType: 'application/json',
+									data : JSON.stringify(data),
+									success: function(response) {
+									        console.log('Success:', response);
+									    },
+									    error: function(error) {
+									        console.error('Error:', error);
+									    }
+								    
+								});
+								
+								
+								
+					            // 데이터를 HTML에 표시
+					            console.log(data);
+								
+					        })
+					        .catch(error => {
+					            console.error('Error:', error);
+					        });
             if (username === 'user' && password === 'password') {
                 showMessage('Login successful!', 'green');
             } else {
@@ -68,6 +106,15 @@
             loginMessage.textContent = message;
             loginMessage.style.color = color;
         }
+		
+		
+		/*document.getElementById('loginButton').addEventListener('click', function (e) {
+		    e.preventDefault(); // 기본 폼 제출 동작 방지
+		    const userId = document.getElementById('username').value;
+
+		    
+		});*/
     </script>
 </body>
+
 </html>
