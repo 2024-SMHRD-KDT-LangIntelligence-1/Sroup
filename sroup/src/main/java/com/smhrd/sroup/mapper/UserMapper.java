@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.smhrd.sroup.model.StudyVO;
 import com.smhrd.sroup.model.UserVO;
 
 @Mapper
@@ -11,7 +12,7 @@ public interface UserMapper {
 
 	// 로그인 처리
 	UserVO login(UserVO uservo);
-	
+
     // 회원 가입 처리
 	void createAccount(UserVO vo);
 	
@@ -28,4 +29,8 @@ public interface UserMapper {
     // 로그인한 회원의 정보 취득 (user_id, user_pw, user_name, user_phone, user_profile_img)
     UserVO selectLoginUser(String user_id); 
 
+
+//	// 특정 스터디 정보 조회
+//	StudyVO selectStudyById(String studyId);
+//}
 }
