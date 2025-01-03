@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,14 +33,28 @@
                 <button onclick="location.href='/recommend'">더보기</button>
             </div>
             <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
+                <div class="study-card" onclick="location.href='5.groupinvolve.html'">
+					<h2 th:text ="${session.data0}"></h2>
                     <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+					
                 </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
+                <div class="study-card" onclick="location.href='study2.html';">
+					<h2 th:text = "${session.data1}"></h2>
+			
+					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+					</div>
+                <div class="study-card" onclick="location.href='study3.html';">
+					<h2 th:text = "${session.data2}"></h2>	
+					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+				</div>
+                <div class="study-card" onclick="location.href='study4.html';">
+					<h2 th:text = "${session.data3}"></h2>
+					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+				</div>
+                <div class="study-card" onclick="location.href='study5.html';">
+					<h2 th:text = "${session.data4}"></h2>
+					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+				</div>
                 
             </div>
         </div>
@@ -64,10 +79,10 @@
         <div class="section">
             <div class="section-header">
                 <h2>내가 가입한 스터디</h2>
-                <button onclick="location.href='/joingroup'">더보기</button>
+				<button onclick="location.href='/joingroup'">더보기</button>
             </div>
             <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
+				<div class="study-card" onclick="location.href='/5.groupinvolve'">
                     <h3>[자바를 잡아라]</h3>
                     <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
                 </div>
@@ -84,7 +99,7 @@
                 <button onclick="location.href='/projectgroup'">더보기</button>
             </div>
             <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
+				<div class="study-card" onclick="location.href='/5.groupinvolve'">
                     <h3>[자바를 잡아라]</h3>
                     <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
                 </div>
@@ -96,6 +111,25 @@
         </div>
     </div>
 </body>
-</html> 
+<script>
+	function displayCards(recommends) {
+	    const recommendsContainer = document.getElementById('recommends');
+	    recommendsContainer.innerHTML = ''; // 기존 내용 초기화
 
-
+	   	 recommends.forEach(recommend => {
+	        // 카드 정보를 HTML로 생성
+	        const recommendElement = document.createElement('tr');
+	        recommendElement.classList.add('recommend');
+	        recommendElement.innerHTML = `
+	        	<td>${recommend.user_id}</td>
+	            <td>${recommend.recommend}</td>
+	            <td>
+	            <ul>
+	                ${JSON.parse(recommend.recommend_desc).map(desc => `<li>${desc.type}: ${desc.dis}%</li>`).join('')}
+	            </ul>
+	        `;
+	        recommendsContainer.appendChild(recommendElement);
+	    });
+	}
+</script>
+</html>
