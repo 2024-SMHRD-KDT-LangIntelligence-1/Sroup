@@ -34,7 +34,7 @@ public class FlaskRestController {
     public String saveSession(@RequestBody Map<String, List<String>> data, HttpSession session) {
     	System.out.println(data.get("title"));
 
-    	for(int i = 0; i<5; i++) {
+    	for(int i = 0; i<20; i++) {
     		
     		session.setAttribute("data"+i, data.get("title").get(i)); // 첫 번째 제목
     	}
