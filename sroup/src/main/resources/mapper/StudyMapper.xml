@@ -45,4 +45,14 @@
     ORDER BY 
         sm.joined_at DESC;
 </select>
+
+	<!-- 인기 스터디 조회 1건 -->
+	<select id="getPopularStudyByStudyCd" parameterType="int"
+		resultType="com.smhrd.sroup.model.StudyVO">
+		SELECT
+		study_cd, study_title, study_content, user_id, study_limit,
+		closed_at, study_status, created_at
+		FROM tb_study where study_cd = #{study_cd};
+	</select>
+	
 </mapper>
