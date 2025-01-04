@@ -54,5 +54,11 @@
 		closed_at, study_status, created_at
 		FROM tb_study where study_cd = #{study_cd};
 	</select>
+
+	<!-- 상세 페이지 관련 스터디 데이터 가져오기 (1건, study_cd로) -->
+	<select id="getStudyByCd" parameterType="int"
+		resultType="com.smhrd.sroup.model.StudyVO">
+		SELECT * FROM tb_study WHERE study_cd = #{studyCd}
+	</select>
 	
 </mapper>

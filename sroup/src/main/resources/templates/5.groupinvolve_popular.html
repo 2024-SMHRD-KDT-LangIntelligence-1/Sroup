@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -20,18 +21,17 @@
     </nav>
     </header>
     <main>
-        <div class="content-header">
-            현업 전문가와 함께하는 진짜 IT 스터디 모임 🎉
-        </div>
-        <div class="project-info">
-            <p>모집 구분: 스터디</p>
-            <p>모집 일정: 진행 예정</p>
-            <p>연락 방법: 오픈채팅</p>
-            <p>모집 방식: 온라인</p>
-            <p>진행 방식: 전체</p>
-            <p>시작 예정일: 2025.02.28</p>
-            <p>예상 기간: 기간 미정</p>
-            <p>사용 언어: <span>Python</span> <span>JavaScript</span> <span>Java</span></p>
+		<div class="content-header">
+			<h2 th:text="${study.studyTitle}">스터디 제목</h2>
+			<p th:text="'작성자: ' + ${study.userId}">작성자 정보</p>
+		</div>
+		<div class="project-info">
+        <p>스터디 내용:</p>
+        <p th:text="${study.studyContent}">스터디 상세 설명</p>
+        <p>진행 상태: <span th:text="${study.studyStatus}">진행 중</span></p>
+        <p>시작일: <span th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+		<p>종료일: <span th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+			<p>모집 인원: <span th:text="${study.studyLimit}"></span></p>
             <div class="form-group">
                 <button type="submit">참여하기</button>
                 <button type="button" onclick="history.back();">목록</button>

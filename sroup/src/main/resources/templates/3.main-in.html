@@ -64,12 +64,19 @@
                 <h2>인기 스터디</h2>
                 <button onclick="location.href='/popularity'">더보기</button>
             </div>
-            <div class="study-list">
-                <div class="study-card" th:each="study : ${studies5}" onclick="location.href='/5.groupinvolve'">
-                     <h2 th:text="${study.studyTitle}"></h2>
-                </div>
-            </div>
-        </div>
+			<div class="study-list">
+				<div class="study-card" th:each="study : ${studies5}"
+					th:onclick="'location.href=\'/study/' + ${study.studyCd} + '\''">
+					<!-- 제목 -->
+					<h2 th:text="${study.studyTitle}"></h2>
+					<!-- 스터디 설명 -->
+					<p class="info" th:text="${study.studyContent}">스터디 상세 설명</p>
+					<!-- 시작일 -->
+					<p class="info">시작일: <span th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+					<!-- 종료일 -->
+					<p class="info">종료일: <span	th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+				</div>
+			</div>	
         <div class="section">
             <div class="section-header">
                 <h2>내가 가입한 스터디</h2>

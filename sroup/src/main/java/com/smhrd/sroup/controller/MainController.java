@@ -195,18 +195,45 @@ public class MainController {
 	        System.out.println("StudyScrapMapper is properly injected.");
 	    }
 		
-	    // 가장 인기있는 스터디 top5의 study_cd 리스트
+	    // 인기있는 스터디 top5의 study_cd 리스트 취득
 		List<Integer> popularStudies5 = studyScrapMapper.getMostPopularStudiesCdTop(5);
 		model.addAttribute("popularStudies5", popularStudies5);
 		
+		// 인기있는 스터디 top5 tb_study 리스트 취득
 		List<StudyVO> studies5 = new ArrayList<>();
 		for (int i = 0; i < popularStudies5.size(); i++) {
 			studies5.add(studyMapper.getPopularStudyByStudyCd(popularStudies5.get(i)));
 		}
 		
+		//  인기있는 스터디 top5 tb_study 리스트 모델에 등록
 		model.addAttribute("studies5", studies5);
 
 		return "3.main-in";
+	}
+	
+	// 각 인기 스터디 클릭 시 이동 (로그인 후 메인 페이지)
+	@GetMapping("/study/{studyCd}")
+	public String showStudyDetail(@PathVariable("studyCd") int studyCd, Model model) {
+	    
+		// studyCd를 기반으로 스터디 정보 조회
+	    StudyVO study = studyMapper.getStudyByCd(studyCd);
+
+	    System.out.println("==============================");
+	    System.out.println("StudyTitle: " + study.getStudyTitle());
+	    System.out.println("StudyContent: " + study.getStudyContent());
+	    System.out.println("UserId: " + study.getUserId());
+	    System.out.println("CurrentMembers: " + study.getCurrentMembers());
+	    System.out.println("StudyLimit: " + study.getStudyLimit());
+	    System.out.println("StudyStatus: " + study.getStudyStatus());
+	    System.out.println("CreatedAt : " + study.getCreatedAt());
+	    System.out.println("ClosedAt :" + study.getClosedAt());
+	    System.out.println("==============================");
+	    if (study == null) {
+	        return "redirect:/error"; // 스터디가 없을 경우 에러 페이지로 이동
+	    }
+
+	    model.addAttribute("study", study);
+	    return "5.groupinvolve_popular"; // 스터디 상세 정보 템플릿
 	}
 
 }

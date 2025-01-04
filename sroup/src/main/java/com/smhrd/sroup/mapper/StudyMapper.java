@@ -25,5 +25,8 @@ public interface StudyMapper {
 	
 	// 인기 스터디 조회(1건)
 	StudyVO getPopularStudyByStudyCd(int study_cd);
+	
+	// 상세 페이지 관련 스터디 데이터 가져오기 (1건, study_cd로)
+	StudyVO getStudyByCd(int studyCd);
 
 }
