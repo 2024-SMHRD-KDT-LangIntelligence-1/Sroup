@@ -51,7 +51,7 @@ public class MainController {
 		
 		// 세션에서 로그인 여부 확인
 		if (session.getAttribute("user") != null) {
-			return "3-1.main-in"; // 로그인한 상태
+			return "3.main-in"; // 로그인한 상태
 		}
 		return "3-1.main-out"; // 로그인하지 않은 상태
 	}
