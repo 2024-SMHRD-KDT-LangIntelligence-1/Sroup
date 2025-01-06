@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SROUP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SROUP</title>
 
-    <link rel="stylesheet" href="/css/5.groupinvolve.css">
-    
+<link rel="stylesheet" href="/css/5.groupinvolve.css">
+
 </head>
 <body>
-    <header>
-        <h1>SROUP</h1>
-        <nav>
+	<header>
+		<h1>SROUP</h1>
+		<nav>
 
-            <button onclick="location.href='/edit-profile'">마이페이지</button>
-            <form action="/logout" method="post" style="display: inline;">
+			<button onclick="location.href='/edit-profile'">마이페이지</button>
+			<form action="/logout" method="post" style="display: inline;">
 				<button type="submit">로그아웃</button>
 			</form>
-    </nav>
-    </header>
-    <main>
-        <div class="content-header">
-            현업 전문가와 함께하는 진짜 IT 스터디 모임 🎉
+		</nav>
+	</header>
+	<main>
+		 <!-- 스터디 정보 헤더 -->
+        <div class="content-header" th:if="${study != null}">
+            <h2 th:text="${study.studyTitle}">스터디 제목</h2>
+            <p th:text="'작성자: ' + ${study.userId}">작성자 정보</p>
         </div>
-        <div class="project-info">
-            <p>모집 구분: 스터디</p>
-            <p>모집 일정: 진행 예정</p>
-            <p>연락 방법: 오픈채팅</p>
-            <p>모집 방식: 온라인</p>
-            <p>진행 방식: 전체</p>
-            <p>시작 예정일: 2025.02.28</p>
-            <p>예상 기간: 기간 미정</p>
-            <p>사용 언어: <span>Python</span> <span>JavaScript</span> <span>Java</span></p>
-            <div class="form-group">
-                <button type="submit">참여하기</button>
-                <button type="button" onclick="history.back();">목록</button>
-            </div>
+        <div class="content-header" th:if="${study == null}">
+            <h2>스터디 정보를 불러올 수 없습니다.</h2>
         </div>
-        
-        <div class="comment-section">
-            <h3>댓글</h3>
-            <textarea id="comment-input" placeholder="댓글을 입력하세요..."></textarea>
-            <button id="submit-comment">댓글 등록</button>
-            <ul id="comment-list"></ul>
-        </div>
-    </main>
 
-    <script>
+        <!-- 스터디 상세 정보 -->
+        <div class="project-info" th:if="${study != null}">
+            <p>스터디 내용:</p>
+            <p th:text="${study.studyContent}">스터디 상세 설명</p>
+            <p>진행 상태: <span th:text="${study.studyStatus}">진행 상태</span></p>
+            <p>가입 상태: <span th:text="${study.status}">가입 상태</span></p>
+            <p th:if="${study.joinedAt != null}" th:text="'가입일: ' + ${#dates.format(study.joinedAt, 'yyyy-MM-dd HH:mm')}">가입일</p>
+            <p th:if="${study.leftAt != null}" th:text="'탈퇴일: ' + ${#dates.format(study.leftAt, 'yyyy-MM-dd HH:mm')}">탈퇴일</p>
+            <p th:if="${study.leftAt == null}">현재 활동 중</p>
+        </div>
+			<div class="form-group">
+				<button type="submit">참여하기</button>
+				<button type="button" onclick="history.back();">목록</button>
+			</div>
+		</div>
+
+		<div class="comment-section">
+			<h3>댓글</h3>
+			<textarea id="comment-input" placeholder="댓글을 입력하세요..."></textarea>
+			<button id="submit-comment">댓글 등록</button>
+			<ul id="comment-list"></ul>
+		</div>
+	</main>
+
+	<script>
         document.addEventListener("DOMContentLoaded", () => {
     // 로그아웃 버튼 클릭 시 화면 전환
     const logoutButton = document.getElementById("logout");

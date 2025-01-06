@@ -13,19 +13,10 @@ public class StudyService {
     @Autowired
     private StudyMapper studyMapper;
 
-//    // 추천 스터디 가져오기
-//    public List<StudyVO> getRecommendedStudies() {
-//        return studyMapper.getRecommendedStudies();
-//    }
-//
-//    // 인기 스터디 가져오기
-//    public List<StudyVO> getPopularStudies() {
-//        return studyMapper.getPopularStudies();
-//    }
     
  // 내가 가입한 스터디 가져오기
     public List<StudyVO> getJoinedStudies(String userId) {
-        return studyMapper.selectJoinedStudies(userId);
+        return studyMapper.getJoinedStudies(userId);
     }
     
 }

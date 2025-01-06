@@ -12,6 +12,11 @@ public class StudyVO {
     private String studyStatus;    // 모집 상태
     private Timestamp createdAt;   // 등록 일자
     private int currentMembers; // 현재 가입된 멤버 수
+    private int memberCd;          // 스터디 가입 이력 고유 코드
+    private Timestamp joinedAt;    // 가입 일자
+    private Timestamp leftAt;      // 탈퇴 일자
+    private String status; // 가입 상태 필드 (JOINED, LEFT 등)
+    
 
     public int getCurrentMembers() {
         return currentMembers;
@@ -84,5 +89,38 @@ public class StudyVO {
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+    
+    public int getMemberCd() {
+        return memberCd;
+    }
+
+    public void setMemberCd(int memberCd) {
+        this.memberCd = memberCd;
+    }
+
+    public Timestamp getJoinedAt() {
+        return joinedAt;
+    }
+
+    public void setJoinedAt(Timestamp joinedAt) {
+        this.joinedAt = joinedAt;
+    }
+
+    public Timestamp getLeftAt() {
+        return leftAt;
+    }
+
+    public void setLeftAt(Timestamp leftAt) {
+        this.leftAt = leftAt;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }
 

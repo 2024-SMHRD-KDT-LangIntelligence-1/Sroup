@@ -1,96 +1,49 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스터디 플랫폼</title>
-
     <link rel="stylesheet" href="/css/joingroup.css">
-
 </head>
 <body>
     <header>
         <div class="logo" onclick="location.href='/3.main-in'">SROUP</div>
         <div>
-
             <button onclick="location.href='/groupgenerate'">그룹생성</button>
             <button onclick="location.href='/edit-profile'">마이페이지</button>
             <form action="/logout" method="post" style="display: inline;">
-				<button type="submit">로그아웃</button>
-			</form>
+                <button type="submit">로그아웃</button>
+            </form>
         </div>
     </header>
 
     <div class="container">
-
+        <!-- 내가 가입한 스터디 -->
         <div class="section">
             <div class="section-header">
                 <h1>내가 가입한 스터디</h1>
             </div>
             <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+                <!-- Thymeleaf 반복 렌더링 -->
+                <div class="study-card" th:each="study : ${joinedStudies}" 
+                     th:onclick="'location.href=\'/my-study/' + ${study.studyCd} + '\''">
+                    <h3 th:text="${study.studyTitle}">스터디 제목</h3>
+                    <p class="info">
+                        마감일: <span th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}"></span><br>
+                        스터디 기간: 
+                        <span th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}"></span> ~ 
+                        <span th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}"></span><br>
+                        모집 인원: <span th:text="${study.currentMembers}"></span> / 
+                        <span th:text="${study.studyLimit}"></span>
+                    </p>
                 </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-                
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[버터링팀초코]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+                <!-- 스터디가 없는 경우 -->
+                <div th:if="${#lists.isEmpty(joinedStudies)}">
+                    <p>가입한 스터디가 없습니다. 새로운 스터디에 참여해보세요!</p>
                 </div>
-                <div class="study-card" onclick="location.href='study11.html';"></div>
-                <div class="study-card" onclick="location.href='study12.html';"></div>
-                <div class="study-card" onclick="location.href='study13.html';"></div>
-                <div class="study-card" onclick="location.href='study14.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
             </div>
         </div>
     </div>
 </body>
 </html>
-
-
-

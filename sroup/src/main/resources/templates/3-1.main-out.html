@@ -59,22 +59,31 @@
 				</div>
 			</div>	
         <div class="section">
-            <div class="section-header">
-                <h2>내가 가입한 스터디</h2>
-                <button onclick="location.href='/joingroup'">더보기</button>
-            </div>
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[자바를 잡아라]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';"></div>
-                <div class="study-card" onclick="location.href='study3.html';"></div>
-                <div class="study-card" onclick="location.href='study4.html';"></div>
-                <div class="study-card" onclick="location.href='study5.html';"></div>
-
-            </div>
+    <div class="section-header">
+        <h2>내가 가입한 스터디</h2>
+        <button onclick="location.href='/joingroup'">더보기</button>
+    </div>
+    <div class="study-list">
+        <!-- 내가 가입한 스터디 반복 렌더링 -->
+        <div class="study-card" th:each="study : ${joinedStudies}"
+             th:onclick="'location.href=\'/study/' + ${study.studyCd} + '\''">
+            <h3 th:text="${study.studyTitle}">스터디 제목</h3>
+            <p class="info">
+                마감일: <span th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2024-12-06</span><br>
+                스터디 기간: <span th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}"></span> ~ 
+                <span th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}"></span><br>
+                모집 인원: <span th:text="${study.currentMembers}"></span> / 
+                <span th:text="${study.studyLimit}"></span>
+            </p>
         </div>
+
+        <!-- 스터디가 없는 경우 -->
+        <div class="study-card" th:if="${#lists.isEmpty(joinedStudies)}">
+            <h3>가입한 스터디가 없습니다.</h3>
+            <p>새로운 스터디를 찾아보세요!</p>
+        </div>
+    </div>
+</div>
         <div class="section">
             <div class="section-header">
                 <h2>프로젝트 관련</h2>

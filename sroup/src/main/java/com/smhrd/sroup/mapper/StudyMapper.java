@@ -3,7 +3,7 @@ package com.smhrd.sroup.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-
+import org.apache.ibatis.annotations.Param;
 import com.smhrd.sroup.model.StudyVO;
 
 @Mapper
@@ -29,4 +29,6 @@ public interface StudyMapper {
 	// 상세 페이지 관련 스터디 데이터 가져오기 (1건, study_cd로)
 	StudyVO getStudyByCd(int studyCd);
 
+	// 특정 사용자(userId)가 JOINED 상태인 스터디 목록 가져오기
+    List<StudyVO> getJoinedStudies(@Param("userId") String userId);
 }
