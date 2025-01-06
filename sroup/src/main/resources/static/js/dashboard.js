@@ -522,6 +522,72 @@ document.addEventListener("DOMContentLoaded", ()=> {
         function removeMember() {
             alert('회원이 내보내졌습니다.');
         }
+        // 그룹 탈퇴 확인 및 처리
+        function confirmGroupLeave() {
+            const confirmLeave = confirm("그룹을 탈퇴하시겠습니까?");
+            if (confirmLeave) {
+                // "예"를 선택한 경우, 리뷰 작성 대시보드 팝업 표시
+                showReviewPopup();
+            } else {
+                // "아니오"를 선택한 경우, 아무 작업도 하지 않음
+                alert("그룹 탈퇴가 취소되었습니다.");
+            }
+        }
+
+        // 리뷰 팝업 열기
+        function showReviewPopup() {
+            const overlay = document.getElementById('review-popup-overlay');
+            const popup = document.getElementById('review-popup');
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+        }
+
+        // 리뷰 팝업 닫기
+        function closeReviewPopup() {
+            const overlay = document.getElementById('review-popup-overlay');
+            const popup = document.getElementById('review-popup');
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const submitButton = document.getElementById('submit-review-button');
+        
+            if (submitButton) {
+                submitButton.addEventListener('click', function () {
+                    const selectedKeywords = Array.from(document.querySelectorAll('#keyword-options input:checked')).map(
+                        (input) => input.value
+                    );
+        
+                    if (selectedKeywords.length === 0) {
+                        alert("최소 하나의 키워드를 선택하세요.");
+                        return;
+                    }
+        
+                    // 리뷰 키워드 로그 출력 (필요 시 서버 전송 구현 가능)
+                    console.log('선택된 키워드:', selectedKeywords);
+        
+                    // 리뷰 등록 완료 알림 및 메인 페이지 이동
+            const userConfirmed = confirm("리뷰 등록이 완료되었습니다! 메인 페이지로 이동하시겠습니까?");
+            if (userConfirmed) {
+                // 메인 페이지 URL로 리다이렉트
+                window.location.href = "/html/3.main-in.html" // 메인 페이지 URL을 설정
+            } else {
+                closeReviewPopup();
+            }
+        });
+    } else {
+        console.error("리뷰 제출 버튼이 존재하지 않습니다.");
+    }
+});
+
+        // 리뷰 팝업 닫기
+        function closeReviewPopup() {
+            const overlay = document.getElementById('review-popup-overlay');
+            const popup = document.getElementById('review-popup');
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+        }
 
 
     
