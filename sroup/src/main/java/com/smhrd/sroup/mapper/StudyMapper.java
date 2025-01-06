@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
 import com.smhrd.sroup.model.StudyVO;
 
 @Mapper
@@ -31,4 +33,7 @@ public interface StudyMapper {
 
 	// 특정 사용자(userId)가 JOINED 상태인 스터디 목록 가져오기
     List<StudyVO> getJoinedStudies(@Param("userId") String userId);
+    @Select("SELECT * FROM tb_study WHERE study_title = #{study_title} limit 1;")
+	StudyVO getStudyByTitle(String studyTitle);
+    
 }

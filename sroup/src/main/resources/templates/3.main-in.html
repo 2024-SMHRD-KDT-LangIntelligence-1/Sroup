@@ -32,31 +32,31 @@
                 <h2>추천 스터디</h2>
                 <button onclick="location.href='/recommend'">더보기</button>
             </div>
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='study1.html'">
-					<h2 th:text ="${session.data0}"></h2>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-					
-                </div>
-                <div class="study-card" onclick="location.href='study2.html';">
-					<h2 th:text = "${session.data1}"></h2>
-			
-					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-					</div>
-                <div class="study-card" onclick="location.href='study3.html';">
-					<h2 th:text = "${session.data2}"></h2>	
-					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-				</div>
-                <div class="study-card" onclick="location.href='study4.html';">
-					<h2 th:text = "${session.data3}"></h2>
-					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-				</div>
-                <div class="study-card" onclick="location.href='study5.html';">
-					<h2 th:text = "${session.data4}"></h2>
-					<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-				</div>
-                
-            </div>
+			<div class="study-list">
+			                <div class="study-card" th:onclick="'location.href=\'/study1/'  +0+ '\''">
+								<h2 th:text ="${session.data0}"></h2>
+			                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+								
+			                </div>
+			                <div class="study-card" th:onclick="'location.href=\'/study1/'  +1+ '\''">
+								<h2 th:text = "${session.data1}"></h2>
+						
+								<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+								</div>
+			                <div class="study-card" th:onclick="'location.href=\'/study1/'  +2+ '\''">
+								<h2 th:text = "${session.data2}"></h2>	
+								<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+							</div>
+			                <div class="study-card" th:onclick="'location.href=\'/study1/'  +3+ '\''">
+								<h2 th:text = "${session.data3}"></h2>
+								<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+							</div>
+			                <div class="study-card" th:onclick="'location.href=\'/study1/'  +4+ '\''">
+								<h2 th:text = "${session.data4}"></h2>
+								<p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
+							</div>
+			                
+			            </div>
         </div>
 
         <div class="section">

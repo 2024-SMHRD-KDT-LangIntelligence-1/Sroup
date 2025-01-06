@@ -293,6 +293,22 @@ public class MainController {
 	    }
 	}
 
+	@GetMapping("/study1/{num}")
+	public String showStudyDetail2(@PathVariable("num") int num, Model model, HttpSession session) {
+		
+		String title = (String)session.getAttribute("data"+num);
+		System.out.println("helloooooooooooooooooooooo" + title);
+		
+	    // studyTitle을 기반으로 스터디 정보 조회
+	    StudyVO study = studyMapper.getStudyByTitle(title);
+
+	    if (study == null) {
+	        return "redirect:/error"; // 스터디가 없을 경우 에러 페이지로 이동
+	    }
+
+	    model.addAttribute("study", study);
+	    return "5.groupinvolve_popular"; // 스터디 상세 페이지 템플릿
+	}
 	
 	// 내가 가입한 스터디 클릭 시 이동
 	@GetMapping("/my-study/{studyCd}")

@@ -36,29 +36,29 @@
             const password = document.getElementById('password').value;
 
 			// 서버로 데이터 전송
-					    fetch('http://127.0.0.1:8083/process', {
-					        method: 'POST',
-					        headers: {
-					            'Content-Type': 'application/json',
-					        },
-					        body: JSON.stringify({ user_id: username }), // JSON 형식으로 전송
-					    })
-					        .then(response => response.json())
-					        .then(data => {
-								
-								$.ajax({
-									url: '/api/saveSession', 
-								    method: 'POST',
-									contentType: 'application/json',
-									data : JSON.stringify(data),
-									success: function(response) {
-									        console.log('Success:', response);
-									    },
-									    error: function(error) {
-									        console.error('Error:', error);
-									    }
-								    
-								});
+		    fetch('http://127.0.0.1:8083/process', {
+		        method: 'POST',
+		        headers: {
+		            'Content-Type': 'application/json',
+		        },
+		        body: JSON.stringify({ user_id: username }), // JSON 형식으로 전송
+		    })
+		        .then(response => response.json())
+		        .then(data => {
+					
+					$.ajax({
+						url: '/api/saveSession', 
+					    method: 'POST',
+						contentType: 'application/json',
+						data : JSON.stringify(data),
+						success: function(response) {
+						        console.log('Success:', response);
+						    },
+						    error: function(error) {
+						        console.error('Error:', error);
+						    }
+					    
+					});
 								
 								
 								

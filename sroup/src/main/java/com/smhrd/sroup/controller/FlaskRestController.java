@@ -32,7 +32,7 @@ public class FlaskRestController {
     
     @PostMapping("/saveSession")
     public String saveSession(@RequestBody Map<String, List<String>> data, HttpSession session) {
-    	System.out.println(data.get("title"));
+    	System.out.println("13123123123123:"+data.get("title"));
 
     	for(int i = 0; i<20; i++) {
     		
