@@ -40,7 +40,10 @@ public class MainController {
 
 	// 메인화면
 	@GetMapping("/")
-	public String home(HttpSession session) {
+	public String home(HttpSession session, Model model) {
+		
+		showPopularStudies(model);
+		
 		// 세션에서 로그인 여부 확인
 		if (session.getAttribute("user") != null) {
 			return "3-1.main-in"; // 로그인한 상태
@@ -188,33 +191,20 @@ public class MainController {
 			return "redirect:/login";
 		}
 		
-	    // Mapper 주입 상태 확인
-	    if (studyScrapMapper == null) {
-	        System.out.println("StudyScrapMapper is null. Check configuration!");
-	    } else {
-	        System.out.println("StudyScrapMapper is properly injected.");
-	    }
+		showPopularStudies(model);
 		
-	    // 인기있는 스터디 top5의 study_cd 리스트 취득
-		List<Integer> popularStudies5 = studyScrapMapper.getMostPopularStudiesCdTop(5);
-		model.addAttribute("popularStudies5", popularStudies5);
-		
-		// 인기있는 스터디 top5 tb_study 리스트 취득
-		List<StudyVO> studies5 = new ArrayList<>();
-		for (int i = 0; i < popularStudies5.size(); i++) {
-			studies5.add(studyMapper.getPopularStudyByStudyCd(popularStudies5.get(i)));
-		}
-		
-		//  인기있는 스터디 top5 tb_study 리스트 모델에 등록
-		model.addAttribute("studies5", studies5);
-
 		return "3.main-in";
 	}
 	
 	// 각 인기 스터디 클릭 시 이동 (로그인 후 메인 페이지)
 	@GetMapping("/study/{studyCd}")
-	public String showStudyDetail(@PathVariable("studyCd") int studyCd, Model model) {
+	public String showStudyDetail(@PathVariable("studyCd") int studyCd, HttpSession session, Model model) {
 	    
+		// 세션에서 로그인 여부 확인
+		if (session.getAttribute("user") == null) {
+			return "2.login"; // 로그인 페이지로 이동
+		}
+		
 		// studyCd를 기반으로 스터디 정보 조회
 	    StudyVO study = studyMapper.getStudyByCd(studyCd);
 
@@ -234,6 +224,29 @@ public class MainController {
 
 	    model.addAttribute("study", study);
 	    return "5.groupinvolve_popular"; // 스터디 상세 정보 템플릿
+	}
+	
+	// 인기 스터디 표시
+	void showPopularStudies(Model model) {
+	    // Mapper 주입 상태 확인
+	    if (studyScrapMapper == null) {
+	        System.out.println("StudyScrapMapper is null. Check configuration!");
+	    } else {
+	        System.out.println("StudyScrapMapper is properly injected.");
+	    }
+		
+	    // 인기있는 스터디 top5의 study_cd 리스트 취득
+		List<Integer> popularStudies5 = studyScrapMapper.getMostPopularStudiesCdTop(5);
+		model.addAttribute("popularStudies5", popularStudies5);
+		
+		// 인기있는 스터디 top5 tb_study 리스트 취득
+		List<StudyVO> studies5 = new ArrayList<>();
+		for (int i = 0; i < popularStudies5.size(); i++) {
+			studies5.add(studyMapper.getPopularStudyByStudyCd(popularStudies5.get(i)));
+		}
+		
+		//  인기있는 스터디 top5 tb_study 리스트 모델에 등록
+		model.addAttribute("studies5", studies5);
 	}
 
 }

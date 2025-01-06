@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,18 +45,19 @@
                 <h2>인기 스터디</h2>
                 <button onclick="location.href='/popularity'">더보기</button>
             </div>
-            <div class="study-list">
-                <div class="study-card" onclick="location.href='/5.groupinvolve'">
-                    <h3>[버터링팀초코]</h3>
-                    <p class="info">태그: 자바<br>마감일: 2024.12.06<br>스터디 기간: 2024.02.08 ~ 2024.04.10<br>모집 인원: 2 / 6</p>
-                </div>
-                <div class="study-card" onclick="location.href='study11.html';"></div>
-                <div class="study-card" onclick="location.href='study12.html';"></div>
-                <div class="study-card" onclick="location.href='study13.html';"></div>
-                <div class="study-card" onclick="location.href='study14.html';"></div>
-
-            </div>
-        </div>
+			<div class="study-list">
+				<div class="study-card" th:each="study : ${studies5}"
+					th:onclick="'location.href=\'/study/' + ${study.studyCd} + '\''">
+					<!-- 제목 -->
+					<h2 th:text="${study.studyTitle}"></h2>
+					<!-- 스터디 설명 -->
+					<p class="info" th:text="${study.studyContent}">스터디 상세 설명</p>
+					<!-- 시작일 -->
+					<p class="info">시작일: <span th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+					<!-- 종료일 -->
+					<p class="info">종료일: <span	th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2025-12-31</span></p>
+				</div>
+			</div>	
         <div class="section">
             <div class="section-header">
                 <h2>내가 가입한 스터디</h2>
