@@ -23,11 +23,16 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class MainController {
 
-	@GetMapping("/main")
-	public String main() {
-	    return "3-1.main-out"; 
+	@GetMapping("/3-1.main-out")
+    public String mainOutPage() {
+        return "3-1.main-out";
 	}
-
+	
+	
+	@GetMapping("/3.main-in")
+    public String mainInPage() {
+        return "3.main-in"; // 3.main-in.html을 렌더링
+    }
 	
 	@Autowired
 	UserMapper userMapper;
