@@ -44,7 +44,7 @@
     
 <!-- 상단 바-->
 <header>
-	<div class="logo" onclick="location.href='/3.main-in'">SROUP</div>
+	<div class="logo" onclick="location.href='/'">SROUP</div>
 	<div>
 		<button onclick="location.href='/groupgenerate'">그룹생성</button>
 		<button onclick="location.href='/edit-profile'">마이페이지</button>
@@ -70,10 +70,46 @@
 	<!-- Dashboard Section -->
 		<div id="dashboard-section" style="margin-top: 20px;">
 		<h4>챌린지 노드 별 제출 업로드</h4>
-			<div id="dashboard-list">
-				<!-- Individual dashboards will be generated here -->
-			</div>
-		</div>
+        <div id="dashboard-list">
+            <!-- Individual dashboards will be generated here -->
+        </div>
+        <div class="file-container">
+        <h1 class="file-header">파일 업로드 및 다운로드</h1>
+
+        <form action="/files/upload" method="post" enctype="multipart/form-data">
+            <label for="file" class="file-label">파일 업로드:</label>
+            <input type="file" name="file" class="file-input" required>
+
+            <label for="uploadedBy" class="file-label">챌린지명:</label>
+            <input type="text" name="uploadedBy" class="file-input" required>
+
+            <button type="submit" class="file-button">Upload</button>
+        </form>
+
+        <h2 class="file-subheader">업로드 파일</h2>
+        <table class="file-table">
+            <tr>
+                <th>No</th>
+                <th>파일명</th>
+                <th>챌린지명</th>
+                <th>다운로드 및 삭제</th>
+            </tr>
+            <tr th:each="file : ${files}">
+                <td th:text="${file.id}"></td>
+                <td th:text="${file.fileName}"></td>
+                <td th:text="${file.uploadedBy}"></td>
+                <td>
+                    <!-- 다운로드 버튼 -->
+                    <a th:href="@{'/files/download/' + ${file.id}}" class="file-button file-button-download">Download</a>
+                    <!-- 삭제 버튼 -->
+                    <form th:action="@{'/files/delete/' + ${file.id}}" method="post" style="display:inline;">
+					    <input type="hidden" name="_method" value="delete"> <!-- DELETE 요청으로 변환 -->
+					    <button type="submit" class="file-button file-button-delete">Delete</button>
+					</form>
+                </td>
+            </tr>
+        </table>
+    </div>
                 
 		<!-- 캘린더 -->
 		<div id="calendar-container"></div>

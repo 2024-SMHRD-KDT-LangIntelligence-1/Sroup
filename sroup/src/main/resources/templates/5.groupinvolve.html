@@ -9,16 +9,16 @@
 
 </head>
 <body>
-	<header>
-		<h1>SROUP</h1>
-		<nav>
+    <header>
+        <h1 onclick="location.href='/'">SROUP</h1>
+        <nav>
 
-			<button onclick="location.href='/edit-profile'">마이페이지</button>
-			<form action="/logout" method="post" style="display: inline;">
+            <button onclick="location.href='/edit-profile'">마이페이지</button>
+            <form action="/logout" method="post" style="display: inline;">
 				<button type="submit">로그아웃</button>
 			</form>
-		</nav>
-	</header>
+    </nav>
+    </header>
 	<main>
 		 <!-- 스터디 정보 헤더 -->
         <div class="content-header" th:if="${study != null}">

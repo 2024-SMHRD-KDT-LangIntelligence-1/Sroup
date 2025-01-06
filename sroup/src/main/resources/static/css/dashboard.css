@@ -328,6 +328,101 @@ textarea {
 
 .save-button:hover {
     background-color: #45a049;
+} /*파일 업로드 css*/
+.file-header {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
 }
 
+.file-subheader {
+    color: #333;
+    margin-bottom: 10px;
+}
 
+/* 컨테이너 스타일 */
+.file-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* 테이블 스타일 */
+.file-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.file-table th, .file-table td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.file-table th {
+    background-color: #f0e53c;
+    color: white;
+    font-weight: bold;
+}
+
+.file-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.file-table tr:hover {
+    background-color: #ddd;
+}
+
+/* 입력 및 버튼 스타일 */
+.file-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.file-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.file-button {
+    background-color: #f0e53c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.file-button:hover {
+    background-color: #f0e53c;
+}
+
+/* 링크 스타일 */
+.file-link {
+    color: #f0e53c;
+    text-decoration: none;
+}
+
+.file-link:hover {
+    text-decoration: underline;
+}
+
+/* 삭제 스타일 */
+.file-button-delete {
+     background-color: #f44336;
+     color: white;
+}
+
+ .file-button-delete:hover {
+     background-color: #e53935;
+}
