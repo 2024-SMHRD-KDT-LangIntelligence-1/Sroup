@@ -1,5 +1,7 @@
 package com.smhrd.sroup.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -124,31 +126,37 @@ public class MainController {
 	}
 
 	// 내 스터디 화면
-	@GetMapping("/mystudy")
-	public String mystudyPage(HttpSession session) {
-		if (session.getAttribute("user") == null) {
-			return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
-		}
-		
-		// HttpSession에서 "user"라는 키로 저장된 값을 가져옴
-		UserVO user = (UserVO) session.getAttribute("user");
-		
-		// 로그인 여부 확인
-		if (user != null) {
-		    System.out.println("유저 아이디: " + user.getUser_id());
-		} else {
-		    System.out.println("로그인되지 않은 상태입니다.");
-		}
-		
-		// 유저가 가입한 스터디 중 하나(가장 최근에 가입한 study_cd) 취득
-		int joined_study_cd = userMapper.selectJoinedStudyCdByEmail(user.getUser_id());
-		// 가입한 study_cd를 세션에 등록
-		session.setAttribute("joined_study_cd", joined_study_cd);
-		
-		System.out.println("joined_study_cd: " + joined_study_cd);
-		
-		return "mystudy";
-	}
+    @GetMapping("/mystudy")
+    public String mystudyPage(HttpSession session, @RequestParam(required = false) String date, Model model) {
+        if (session.getAttribute("user") == null) {
+            return "redirect:/login"; // 로그인하지 않은 경우 로그인 페이지로 리다이렉트
+        }
+
+        // 유저 정보 가져오기
+        UserVO user = (UserVO) session.getAttribute("user");
+        if (user == null) {
+            System.out.println("로그인되지 않은 상태입니다.");
+            return "redirect:/login";
+        }
+
+        // 유저가 가입한 스터디 중 하나(가장 최근에 가입한 study_cd) 취득
+        int joinedStudyCd = userMapper.selectJoinedStudyCdByEmail(user.getUser_id());
+        session.setAttribute("joined_study_cd", joinedStudyCd);
+
+        // 기본 날짜 설정
+        if (date == null || date.isEmpty()) {
+            date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+        }
+
+        // 초기 로드 시 회고록 데이터 가져오기
+        String studyContent = studyService.getStudyContentByDate(user.getUser_id(), joinedStudyCd, date);
+
+        // 모델에 데이터 추가
+        model.addAttribute("studyContent", studyContent != null ? studyContent : "작성된 내용이 없습니다.");
+        model.addAttribute("currentDate", date);
+
+        return "mystudy";
+    }
 
 	// 스터디 참여 화면
 	@GetMapping("/5.groupinvolve")

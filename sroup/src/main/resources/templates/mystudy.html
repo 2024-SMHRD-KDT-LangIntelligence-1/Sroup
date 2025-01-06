@@ -320,6 +320,65 @@
 	</div>
 </div>
 
-  
+<!-- 회고록 관련 start -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const prevDateBtn = document.getElementById("prev-date");
+        const nextDateBtn = document.getElementById("next-date");
+        const currentDateSpan = document.getElementById("current-date");
+        const studyContentDiv = document.getElementById("study-content");
+
+        // 현재 날짜 초기화
+        let currentDate = new Date();
+        updateCurrentDateDisplay();
+
+        // 이전 날짜 버튼 클릭
+        prevDateBtn.addEventListener("click", () => {
+            currentDate.setDate(currentDate.getDate() - 1);
+            updateCurrentDateDisplay();
+            fetchStudyContent();
+        });
+
+        // 다음 날짜 버튼 클릭
+        nextDateBtn.addEventListener("click", () => {
+            currentDate.setDate(currentDate.getDate() + 1);
+            updateCurrentDateDisplay();
+            fetchStudyContent();
+        });
+
+        // 현재 날짜 표시 업데이트
+        function updateCurrentDateDisplay() {
+            const formattedDate = formatDate(currentDate);
+            currentDateSpan.textContent = formattedDate;
+        }
+
+        // 날짜 포맷
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}.${month}.${day}`;
+        }
+
+        // 서버에서 데이터 가져오기
+        function fetchStudyContent() {
+            const formattedDate = formatDate(currentDate);
+
+            fetch(`/api/getStudyContent?date=${formattedDate}`)
+                .then(response => response.json())
+                .then(data => {
+                    studyContentDiv.textContent = data.content || "작성된 내용이 없습니다.";
+                })
+                .catch(error => {
+                    console.error("Error fetching study content:", error);
+                    studyContentDiv.textContent = "오류가 발생했습니다.";
+                });
+        }
+
+        // 페이지 로드 시 초기 데이터 가져오기
+        fetchStudyContent();
+    });
+</script>
+<!-- 회고록 관련 end -->
 </body>
 </html>
