@@ -74,25 +74,25 @@
             <!-- Individual dashboards will be generated here -->
         </div>
         <div class="file-container">
-        <h1 class="file-header">File Upload and Download</h1>
+        <h1 class="file-header">파일 업로드 및 다운로드</h1>
 
         <form action="/files/upload" method="post" enctype="multipart/form-data">
-            <label for="file" class="file-label">Select File:</label>
+            <label for="file" class="file-label">파일 업로드:</label>
             <input type="file" name="file" class="file-input" required>
 
-            <label for="uploadedBy" class="file-label">Uploaded By:</label>
+            <label for="uploadedBy" class="file-label">챌린지명:</label>
             <input type="text" name="uploadedBy" class="file-input" required>
 
             <button type="submit" class="file-button">Upload</button>
         </form>
 
-        <h2 class="file-subheader">Uploaded Files</h2>
+        <h2 class="file-subheader">업로드 파일</h2>
         <table class="file-table">
             <tr>
-                <th>ID</th>
-                <th>File Name</th>
-                <th>Uploaded By</th>
-                <th>Actions</th>
+                <th>No</th>
+                <th>파일명</th>
+                <th>챌린지명</th>
+                <th>다운로드 및 삭제</th>
             </tr>
             <tr th:each="file : ${files}">
                 <td th:text="${file.id}"></td>
