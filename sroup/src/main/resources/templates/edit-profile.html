@@ -6,6 +6,8 @@
   <title>사용자 대시보드</title>
 
   <link rel="stylesheet" href="/css/edit-profile.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/dashboard.js"></script>
 
 </head>
 <body>
@@ -31,9 +33,34 @@
             <li>
                 <a href="/mystudy">내스터디</a>
             </li>
+            <li>
+            <h4 href="#" onclick="confirmGroupLeave()">-그룹 탈퇴</h4>
+       		</li>
         </ul>
     </div>
         <!-- 사이드바 끝-->
+        <!-- 리뷰 작성 팝업 -->
+<div class="popup-overlay" id="review-popup-overlay"></div>
+<div class="popup" id="review-popup">
+    <h2>리뷰 작성</h2>
+
+    <h3>키워드 선택</h3>
+    <div id="keyword-options">
+        <label><input type="checkbox" value="초보자 친화적"> 초보자 친화적</label>
+        <label><input type="checkbox" value="경험자 중심"> 경험자 중심</label>
+        <label><input type="checkbox" value="속도감 있는 진행"> 속도감 있는 진행</label>
+        <label><input type="checkbox" value="여유로운 진행"> 여유로운 진행</label>
+        <label><input type="checkbox" value="목표 달성 가능"> 목표 달성 가능</label>
+        <label><input type="checkbox" value="체계적인"> 체계적인</label>
+        <label><input type="checkbox" value="열정적인"> 열정적인</label>
+        <label><input type="checkbox" value="편안한"> 편안한</label>
+        <label><input type="checkbox" value="조용한"> 조용한</label>
+        <label><input type="checkbox" value="활발한"> 활발한</label>
+    </div>
+
+    <button id="submit-review-button">리뷰 제출</button>
+    <button type="button" onclick="closeReviewPopup()">취소</button>
+</div>
 
         <!-- 사이드바 외 본문 시작 -->
     <div id="main">
