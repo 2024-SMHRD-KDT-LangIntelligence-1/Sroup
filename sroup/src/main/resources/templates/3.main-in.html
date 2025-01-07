@@ -78,56 +78,37 @@
 				</div>
 			</div>
 		</div>	
-        <div class="section" th:if="${!#lists.isEmpty(joinedStudies)}">
-    <div class="section-header">
-        <h2>내가 가입한 스터디</h2>
-        <button onclick="location.href='/joingroup'">더보기</button>
-    </div>
-    <div class="study-list">
-        <!-- 내가 가입한 스터디 반복 렌더링 -->
-        <div class="study-card" th:each="study : ${joinedStudies}" 
-             th:onclick="'location.href=\'/my-study/' + ${study.studyCd} + '\''">
-            <h3 th:text="${study.studyTitle}">스터디 제목</h3>
-            <p class="info">
-                마감일: <span th:if="${study.closedAt != null}" th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2024-12-06</span>
-                <span th:if="${study.closedAt == null}">마감일 없음</span><br>
-                스터디 기간: 
-                <span th:if="${study.createdAt != null}" th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}"></span> ~ 
-                <span th:if="${study.closedAt != null}" th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}"></span><br>
-                모집 인원: <span th:text="${study.currentMembers}"></span> / 
-                <span th:text="${study.studyLimit}"></span>
-            </p>
-        </div>
-    </div>
-</div>
+			<div class="section-header">
+				<h2>내가 가입한 스터디</h2>
+				<button onclick="location.href='/joingroup'">더보기</button>
+			</div>
+			<div class="study-list">
 
-<!-- 데이터가 없을 때 -->
-<div th:if="${#lists.isEmpty(joinedStudies)}">
-    <h3>가입한 스터디가 없습니다.</h3>
-    <p>새로운 스터디에 참여해보세요!</p>
-</div>
-
-
-<!-- 가입한 스터디가 없을 경우 -->
-<div class="section" th:if="${#lists.isEmpty(joinedStudies)}">
-    <div class="section-header">
-        <h2>내가 가입한 스터디</h2>
-    </div>
-    <div class="no-studies">
-        <h3>가입한 스터디가 없습니다.</h3>
-        <p>새로운 스터디를 찾아보세요!</p>
-    </div>
-</div>
-        
-        </div>
-
-        <!-- 비어 있는 경우 -->
-        <div class="study-card" th:if="${#lists.isEmpty(joinedStudies)}">
-            <h3>가입한 스터디가 없습니다.</h3>
-            <p>새로운 스터디를 찾아보세요!</p>
-        </div>
-        </div>
-    </div>
+				<!-- 내가 가입한 스터디 반복 렌더링 -->
+				<!-- 가입한 스터디가 있을 때 -->
+				<div th:if="${not #lists.isEmpty(joinedStudies)}">
+					<div class="study-card" th:each="study : ${joinedStudies}"
+						th:onclick="'location.href=\'/my-study/' + ${study.studyCd} + '\''">
+						<h3 th:text="${study.studyTitle}">스터디 제목</h3>
+						<p class="info">
+							마감일: <span th:if="${study.closedAt != null}"
+								th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}">2024-12-06</span>
+							<span th:if="${study.closedAt == null}">마감일 없음</span><br>
+							스터디 기간: <span th:if="${study.createdAt != null}"
+								th:text="${#dates.format(study.createdAt, 'yyyy-MM-dd')}"></span>
+							~ <span th:if="${study.closedAt != null}"
+								th:text="${#dates.format(study.closedAt, 'yyyy-MM-dd')}"></span><br>
+							모집 인원: <span th:text="${study.currentMembers}"></span> / <span
+								th:text="${study.studyLimit}"></span>
+						</p>
+					</div>
+				</div>
+				<!-- 데이터가 없을 때 -->
+				<div class="study-card" th:if="${#lists.isEmpty(joinedStudies)}">
+					<h3>가입한 스터디가 없습니다.</h3>
+					<p>새로운 스터디에 참여해보세요!</p>
+				</div>
+			</div>
 </body>
 <script>
 	function displayCards(recommends) {
