@@ -55,7 +55,7 @@ public class MainController {
 	@GetMapping("/")
 	public String home(HttpSession session, Model model) {
 		
-		showPopularStudies(model);
+		showPopularStudies(model, 5);
 		
 		// 세션에서 로그인 여부 확인
 		if (session.getAttribute("user") != null) {
@@ -178,10 +178,13 @@ public class MainController {
 
 	// 인기 스터디 화면
 	@GetMapping("/popularity")
-	public String popularityPage(HttpSession session) {
+	public String popularityPage(HttpSession session, Model model) {
 		if (session.getAttribute("user") == null) {
 			return "redirect:/login";
 		}
+		
+		showPopularStudies(model, 25);
+		
 		return "popularity";
 	}
 
@@ -212,7 +215,7 @@ public class MainController {
 		}
 		
 		showMyStudies(model,session);
-		showPopularStudies(model);
+		showPopularStudies(model, 5);
 		
 		
 		
@@ -250,7 +253,7 @@ public class MainController {
 	}
 	
 	// 인기 스터디 표시
-	void showPopularStudies(Model model) {
+	void showPopularStudies(Model model, int topNum) {
 	    // Mapper 주입 상태 확인
 	    if (studyScrapMapper == null) {
 	        System.out.println("StudyScrapMapper is null. Check configuration!");
@@ -258,18 +261,19 @@ public class MainController {
 	        System.out.println("StudyScrapMapper is properly injected.");
 	    }
 		
-	    // 인기있는 스터디 top5의 study_cd 리스트 취득
-		List<Integer> popularStudies5 = studyScrapMapper.getMostPopularStudiesCdTop(5);
-		model.addAttribute("popularStudies5", popularStudies5);
+	    // 인기있는 스터디 top의 study_cd 리스트 취득
+		List<Integer> popularStudies = studyScrapMapper.getMostPopularStudiesCdTop(topNum);
+		model.addAttribute("popularStudies", popularStudies);
 		
-		// 인기있는 스터디 top5 tb_study 리스트 취득
-		List<StudyVO> studies5 = new ArrayList<>();
-		for (int i = 0; i < popularStudies5.size(); i++) {
-			studies5.add(studyMapper.getPopularStudyByStudyCd(popularStudies5.get(i)));
+		// 인기있는 스터디 top tb_study 리스트 취득
+		List<StudyVO> studies = new ArrayList<>();
+		for (int i = 0; i < popularStudies.size(); i++) {
+			studies.add(studyMapper.getPopularStudyByStudyCd(popularStudies.get(i)));
+			System.out.println("studies.get(i).getStudyTitle()" + studies.get(i).getStudyTitle());
 		}
 		
 		//  인기있는 스터디 top5 tb_study 리스트 모델에 등록
-		model.addAttribute("studies5", studies5);
+		model.addAttribute("studies", studies);
 	}
 	
 	// 내가 가입한 스터디 표시

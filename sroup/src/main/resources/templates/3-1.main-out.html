@@ -57,7 +57,7 @@
                 <button onclick="location.href='/popularity'">더보기</button>
             </div>
 			<div class="study-list">
-				<div class="study-card" th:each="study : ${studies5}"
+				<div class="study-card" th:each="study : ${studies}"
 					th:onclick="'location.href=\'/study/' + ${study.studyCd} + '\''">
 					<!-- 제목 -->
 					<h2 th:text="${study.studyTitle}"></h2>
