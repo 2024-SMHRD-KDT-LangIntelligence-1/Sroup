@@ -581,13 +581,31 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
 });
 
-        // 리뷰 팝업 닫기
-        function closeReviewPopup() {
-            const overlay = document.getElementById('review-popup-overlay');
-            const popup = document.getElementById('review-popup');
-            overlay.style.display = 'none';
-            popup.style.display = 'none';
+// 리뷰 팝업 닫기
+function closeReviewPopup() {
+	const overlay = document.getElementById('review-popup-overlay');
+	const popup = document.getElementById('review-popup');
+	overlay.style.display = 'none';
+	popup.style.display = 'none';
+}
+
+
+// 출석률 동적 이벤트
+document.addEventListener("DOMContentLoaded", () => {
+    function setBarWidth(barId, percentage) {
+        const barElement = document.getElementById(barId);
+        if (barElement) {
+            barElement.style.width = percentage + "%";
+        } else {
+            console.error(`Element with id ${barId} not found.`);
         }
+    }
+
+    // 출석률 데이터 설정
+    setBarWidth("bar1", (7 / 12) * 100); // 완료 챌린지
+    setBarWidth("bar2", (5 / 12) * 100); // 계획대로 했어요
+    setBarWidth("bar3", (2 / 12) * 100); // 제출 못 했어요
+});
 
 
     
