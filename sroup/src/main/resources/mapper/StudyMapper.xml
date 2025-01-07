@@ -66,6 +66,8 @@
     JOIN tb_study s ON sm.study_cd = s.study_cd
     WHERE sm.user_id = #{userId} AND sm.status = 'JOINED';
 </select>
+
+
 	
 
 </mapper>

@@ -158,14 +158,14 @@ public class MainController {
         return "mystudy";
     }
 
-	// 스터디 참여 화면
-	@GetMapping("/5.groupinvolve")
-	public String groupInvolvePage(HttpSession session) {
-		if (session.getAttribute("user") == null) {
-			return "redirect:/login";
-		}
-		return "5.groupinvolve";
-	}
+//	// 스터디 참여 화면
+//	@GetMapping("/5.groupinvolve")
+//	public String groupInvolvePage(HttpSession session) {
+//		if (session.getAttribute("user") == null) {
+//			return "redirect:/login";
+//		}
+//		return "5.groupinvolve";
+//	}
 
 //	// 내가 가입한 스터디 화면
 //	@GetMapping("/joingroup")
@@ -352,7 +352,7 @@ public class MainController {
 	    // 모델에 스터디 정보 추가
 	    model.addAttribute("study", study);
 
-	    return "5.groupinvolve"; // 스터디 상세 정보 템플릿
+	    return "5.groupinvolve_mystudy"; // 스터디 상세 정보 템플릿
 	}
 	
 	// 내가 가입한 스터디 화면
