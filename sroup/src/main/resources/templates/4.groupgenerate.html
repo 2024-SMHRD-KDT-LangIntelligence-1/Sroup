@@ -28,16 +28,32 @@
                     <label for="title">모집 제목</label>
                     <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
                 </div>
-                <div class="form-group">
-                    <label for="subject">모집 과목</label>
-                    <select id="subject" name="subject">
-                        <option value="java">front-end</option>
-                        <option value="python">back-end</option>
-                        <option value="javascript">crawling</option>
-                        <option value="spring">database</option>
-                        <option value="database">other</option>
-                    </select>
+                <label for="subject">모집 분야</label>
+                <div class="checkbox-group">
+					<label><input type="checkbox" name="interest" value="1" /> front-end</label> 
+					<label><input type="checkbox" name="interest" value="2" /> back-end</label> 
+					<label><input type="checkbox" name="interest" value="3" /> Other</label>
                 </div>
+                
+				<label>스터디 성향</label>
+				<div class="checkbox-group">
+					<label><input type="checkbox" name="personality" value="1" />초보자
+						친화적</label> <label><input type="checkbox" name="personality"
+						value="2" />경험자 중심</label> <label><input type="checkbox"
+						name="personality" value="3" />속도감 있는 진행</label>
+				</div>
+				<div class="checkbox-group">
+					<label><input type="checkbox" name="personality" value="4" />여유로운
+						진행</label> <label><input type="checkbox" name="personality"
+						value="5" />목표 달성 가능</label> <label><input type="checkbox"
+						name="personality" value="6" />체계적인</label>
+				</div>
+				<div class="checkbox-group">
+					<label><input type="checkbox" name="personality" value="7" />열정적인</label>
+					<label><input type="checkbox" name="personality" value="8" />편안한</label>
+					<label><input type="checkbox" name="personality" value="9" />조용한</label>
+					<label><input type="checkbox" name="personality" value="10" />활발한</label>
+				</div>
 
                 <div class="form-group">
                     <label for="recruitment-number">모집 인원</label>
@@ -51,48 +67,26 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="recruitment-period">모집 기간</label>
-                    <select id="recruitment-period" name="recruitment-period">
-                        <option value="1-week">1주</option>
-                        <option value="2-weeks">2주</option>
-                        <option value="1-month">1개월</option>
-                    </select>
-                </div>
+				<div class="form-group">
+				    <label for="recruitment-period">모집 기간</label>
+				    <div class="date-range">
+				        <label for="recruitment-start">From:</label>
+				        <input type="date" id="recruitment-start" name="recruitment-start">
+				        <label for="recruitment-end">To:</label>
+				        <input type="date" id="recruitment-end" name="recruitment-end">
+				    </div>
+				</div>
 
-                <div class="form-group">
-                    <label for="study-period">진행 기간</label>
-                    <select id="study-period" name="study-period">
-                        <option value="1-week">1주</option>
-                        <option value="2-weeks">2주</option>
-                        <option value="1-month">1개월</option>
-                        <option value="3-month">3개월</option>
-                        <option value="6-month">6개월</option>
-                        <option value="1-year">1년</option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="day">요일</label>
-                    <select id="day" name="day">
-                        <option value="monday">월요일</option>
-                        <option value="tuesday">화요일</option>
-                        <option value="wednesday">수요일</option>
-                        <option value="thursday">목요일</option>
-                        <option value="friday">금요일</option>
-                        <option value="saturday">토요일</option>
-                        <option value="sunday">일요일</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="time">시간대</label>
-                    <select id="time" name="time">
-                        <option value="morning">오전</option>
-                        <option value="afternoon">오후</option>
-                        <option value="evening">저녁</option>
-                    </select>
-                </div>
+				<div class="form-group">
+				    <label for="study-period">진행 기간</label>
+				    <div class="date-range">
+				        <label for="study-start">From:</label>
+				        <input type="date" id="study-start" name="study-start">
+				        <label for="study-end">To:</label>
+				        <input type="date" id="study-end" name="study-end">
+				    </div>
+				</div>
 
                 <div class="form-group">
                     <label for="details">상세 내용</label>

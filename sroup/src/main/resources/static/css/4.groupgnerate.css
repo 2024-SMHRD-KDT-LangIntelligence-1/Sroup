@@ -88,3 +88,27 @@ button {
 button:hover {
     background-color: #beac0a;
 }
+
+
+
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap; /* 줄바꿈 가능 */
+    gap: 30px; /* 항목 간 간격 */
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center; /* 체크박스와 텍스트를 수직으로 가운데 정렬 */
+}
+
+.date-range {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.date-range label {
+    margin-right: 5px;
+}
