@@ -3,21 +3,23 @@
 <mapper namespace="com.smhrd.sroup.mapper.LearningRecordMapper">
 
 	<!-- 회고록 등록 -->
-	<insert id ="createLearningRecord"
-	parameterType="com.smhrd.sroup.model.LearningRecordVO">
-	INSERT INTO tb_learning_record (learning_title, learning_content, user_id, study_cd)
-	VALUES (#{learning_title}, #{learning_content}, #{user_id}, #{study_cd});
+	<insert id="createLearningRecord"
+		parameterType="com.smhrd.sroup.model.LearningRecordVO">
+		INSERT INTO tb_learning_record (learning_title, learning_content, user_id,
+		study_cd)
+		VALUES (#{learning_title}, #{learning_content}, #{user_id}, #{study_cd});
 	</insert>
 
 	<!-- 회고록 가져오기 (최신순 1건) -->
-	<select id="getOneLearningRecord" parameterType="map" resultType="string">
-	    SELECT learning_content
-	    FROM tb_learning_record
-	    WHERE user_id = #{user_id}
-	      AND study_cd = #{study_cd}
-	      AND DATE_FORMAT(created_at, '%Y.%m.%d') = #{created_at}
-	    ORDER BY created_at DESC
-	    LIMIT 1;
+	<select id="getOneLearningRecord" parameterType="map"
+		resultType="string">
+		SELECT learning_content
+		FROM tb_learning_record
+		WHERE user_id = #{user_id}
+		AND study_cd = #{study_cd}
+		AND DATE_FORMAT(created_at, '%Y.%m.%d') = #{created_at}
+		ORDER BY created_at DESC
+		LIMIT 1;
 	</select>
 
 </mapper>

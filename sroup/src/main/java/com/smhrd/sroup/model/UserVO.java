@@ -15,6 +15,5 @@ public class UserVO {
 	private String user_name;
 	private String user_phone;
 	private String user_profile_img;
-	//private Timestamp joinedAt;
 	
 }

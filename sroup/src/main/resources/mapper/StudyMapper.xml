@@ -3,11 +3,6 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.sroup.mapper.StudyMapper">
-
-	<!-- 추천 스터디 <select id="getRecommendedStudies" resultType="com.smhrd.sroup.model.StudyVO"> 
-		SELECT * FROM tb_study WHERE study_status = '추천' LIMIT 5 </select> 인기 스터디 
-		<select id="getPopularStudies" resultType="com.smhrd.sroup.model.StudyVO"> 
-		SELECT * FROM tb_study ORDER BY view_count DESC LIMIT 5 </select> -->
 	<!-- 내가 가입한 스터디 목록 조회 -->
 	<select id="selectJoinedStudies" parameterType="string"
 		resultType="com.smhrd.sroup.model.StudyVO">
@@ -20,14 +15,16 @@
 		SELECT COUNT(*)
 		FROM tb_study_member sm_count
 		WHERE sm_count.study_cd = s.study_cd
-		AND sm_count.status = 'JOINED'
+		AND
+		sm_count.status = 'JOINED'
 		) AS currentMembers
 		FROM
 		tb_study_member sm
 		INNER JOIN
 		tb_study s ON sm.study_cd = s.study_cd
 		WHERE
-		sm.user_id = #{user_id}
+		sm.user_id =
+		#{user_id}
 		AND sm.status = 'JOINED'
 		ORDER BY
 		sm.joined_at DESC;
@@ -49,25 +46,25 @@
 		resultType="com.smhrd.sroup.model.StudyVO">
 		SELECT * FROM tb_study WHERE study_cd = #{studyCd}
 	</select>
-	
+
 	<!-- 내가 가입한 스터디 조회 -->
-	<select id="getJoinedStudies" resultType="com.smhrd.sroup.model.StudyVO">
-    SELECT 
-        sm.member_cd AS memberCd,
-        sm.study_cd AS studyCd,
-        s.study_title AS studyTitle,
-        s.study_content AS studyContent,
-        s.study_limit AS studyLimit,
-        s.closed_at AS closedAt,
-        s.study_status AS studyStatus,
-        sm.joined_at AS joinedAt,
-        sm.left_at AS leftAt
-    FROM tb_study_member sm
-    JOIN tb_study s ON sm.study_cd = s.study_cd
-    WHERE sm.user_id = #{userId} AND sm.status = 'JOINED';
-</select>
-
-
-	
-
+	<select id="getJoinedStudies"
+		resultType="com.smhrd.sroup.model.StudyVO">
+		SELECT
+		sm.member_cd AS memberCd,
+		sm.study_cd AS studyCd,
+		s.study_title AS studyTitle,
+		s.study_content AS studyContent,
+		s.study_limit AS studyLimit,
+		s.closed_at AS closedAt,
+		s.study_status AS
+		studyStatus,
+		sm.joined_at AS joinedAt,
+		sm.left_at AS leftAt
+		FROM
+		tb_study_member sm
+		JOIN tb_study s ON sm.study_cd = s.study_cd
+		WHERE
+		sm.user_id = #{userId} AND sm.status = 'JOINED';
+	</select>
 </mapper>

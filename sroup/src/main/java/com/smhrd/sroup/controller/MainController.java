@@ -10,12 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.smhrd.sroup.mapper.StudyMapper;
 import com.smhrd.sroup.mapper.StudyScrapMapper;
 import com.smhrd.sroup.mapper.UserMapper;
@@ -27,17 +22,6 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MainController {
-
-	@GetMapping("/3-1.main-out")
-    public String mainOutPage() {
-        return "3-1.main-out";
-	}
-	
-	
-	@GetMapping("/3.main-in")
-    public String mainInPage() {
-        return "3.main-in"; // 3.main-in.html을 렌더링
-    }
 	
 	@Autowired
 	UserMapper userMapper;
@@ -50,6 +34,17 @@ public class MainController {
 	
 	@Autowired
 	StudyMapper studyMapper;
+
+	@GetMapping("/3-1.main-out")
+    public String mainOutPage() {
+        return "3-1.main-out";
+	}
+	
+	
+	@GetMapping("/3.main-in")
+    public String mainInPage() {
+        return "3.main-in"; // 3.main-in.html을 렌더링
+    }
 
 	// 메인화면
 	@GetMapping("/")
@@ -64,7 +59,6 @@ public class MainController {
 		}
 		return "3-1.main-out"; // 로그인하지 않은 상태
 	}
-	
 	
 	// 로그인 화면
 	@GetMapping("/login")
@@ -158,24 +152,6 @@ public class MainController {
         return "mystudy";
     }
 
-//	// 스터디 참여 화면
-//	@GetMapping("/5.groupinvolve")
-//	public String groupInvolvePage(HttpSession session) {
-//		if (session.getAttribute("user") == null) {
-//			return "redirect:/login";
-//		}
-//		return "5.groupinvolve";
-//	}
-
-//	// 내가 가입한 스터디 화면
-//	@GetMapping("/joingroup")
-//	public String joinGroupPage(HttpSession session) {
-//		if (session.getAttribute("user") == null) {
-//			return "redirect:/login";
-//		}
-//		return "joingroup";
-//	}
-
 	// 인기 스터디 화면
 	@GetMapping("/popularity")
 	public String popularityPage(HttpSession session, Model model) {
@@ -216,8 +192,6 @@ public class MainController {
 		
 		showMyStudies(model,session);
 		showPopularStudies(model, 5);
-		
-		
 		
 		return "3.main-in";
 	}
@@ -374,6 +348,4 @@ public class MainController {
 	    return "joingroup"; // 템플릿 이름
 	}
 
-
-	
 }
