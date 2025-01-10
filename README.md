@@ -26,3 +26,62 @@
   - 인기 스터디
   - 그룹 생성
   - 마이 페이지
+
+ ## ⭐ 주요 기능
+* 추천시스템 - 사용자에게 어울리는 스터디 그룹 추천
+* 리뷰 기능 - 사용자가 탈퇴시 해당 스터디 그룹의 UI를 이용해 선택하는 방식의 리뷰 등록
+* 마인드맵 및 자료 업로드 - 그룹 참여시 챌린지 마인드맵을 통해 체계적인 목표와 방향성 제시
+* 회고록 - 스터디 일정에 맞춰 회고록 작성을 통해 출석률 반영
+* 학습 데이터 시각화 - 대시보드의 그래프 ( 출석률, 달성률,학습시간, 테스트 점수 입력)
+<br>
+
+## ⛏ 기술스택
+<table>
+    <tr>
+        <th>구분</th>
+        <th>내용</th>
+    </tr>
+    <tr>
+        <td>사용언어</td>
+        <td>
+            <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
+            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+        </td>
+    </tr>
+    <tr>
+        <td>개발도구</td>
+        <td>
+            <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white"/>
+        </td>
+    </tr>
+    <tr>
+        <td>프레임워크</td>
+        <td>
+            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/> 
+            <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"/>
+        </td>
+    </tr>
+    <tr>
+        <td>데이터베이스</td>
+        <td>
+            <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/> 
+        </td>
+    </tr>
+    <tr>
+        <td>협업도구</td>
+        <td>
+            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+        </td>
+    </tr>
+</table>
+
+
+<br>
+
+## ⚙ 시스템 아키텍처
+![시스템아키텍처-SROUP](https://github.com/user-attachments/assets/29900f43-5843-4f22-a6f3-8acbe7cfe86b)
+<br>
+
