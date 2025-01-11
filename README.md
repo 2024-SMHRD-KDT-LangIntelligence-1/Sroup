@@ -77,4 +77,7 @@
 ## ⚙ 시스템 아키텍처
 ![시스템아키텍처-SROUP](https://github.com/user-attachments/assets/29900f43-5843-4f22-a6f3-8acbe7cfe86b)
 <br>
-
+<br>
+## ?
+![?](C:\Users\ehrud\Desktop\스크린샷 2025-01-11 171144.png)
+<br>
