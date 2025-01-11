@@ -95,7 +95,7 @@
 <table>
 
 <tr>
-        <td style="text-align: center;">메인페이지</td>
+<td style="text-align: center;">메인페이지</td>
         <td>
 <a href="https://ibb.co/55C5jzK"><img src="https://i.ibb.co/19B9Xpz/2025-01-11-180051.png" alt="2025-01-11-180051" border="0"></a>
         </td>
