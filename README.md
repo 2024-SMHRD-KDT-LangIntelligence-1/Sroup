@@ -80,5 +80,5 @@
 
 <br>
 ## ?
-![dk](https://ibb.co/jyp1D7N)
+![시스템아키텍처](https://ibb.co/jyp1D7N)
 </br>
