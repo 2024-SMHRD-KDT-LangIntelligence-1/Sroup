@@ -109,7 +109,6 @@
 <a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
         </td>
     </tr>
-    
     <tr>
         <td>내 정보/그룹 대시보드/개인 대시보드</td>
         <td>
