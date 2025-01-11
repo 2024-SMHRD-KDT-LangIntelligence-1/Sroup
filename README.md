@@ -79,5 +79,5 @@
 <br>
 <br>
 ## ?
-![?](C:\Users\ehrud\Desktop\스크린샷 2025-01-11 171144.png)
+![?](https://github.com/2024-SMHRD-KDT-LangIntelligence-1/Sroup/blob/master/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-01-11%20171144.png?raw=true)
 <br>
