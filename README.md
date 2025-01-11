@@ -77,7 +77,9 @@
 ## ⚙ 시스템 아키텍처
 ![시스템아키텍처-SROUP](https://github.com/user-attachments/assets/29900f43-5843-4f22-a6f3-8acbe7cfe86b)
 </br>
-
+<br>
+<a href="https://ibb.co/F80GSCZ"><img src="https://i.ibb.co/SVdqhGY/Kakao-Talk-20250109-093138131.png" alt="Kakao-Talk-20250109-093138131" border="0"></a>
+</br>
 <br>
 <a href="https://ibb.co/jyp1D7N"><img src="https://i.ibb.co/McX37qv/2025-01-11-171144.png" alt="2025-01-11-171144" border="0"></a>
 </br>
