@@ -97,9 +97,10 @@
     <tr>
         <td>메인페이지</td>
         <td>
-		<a href="https://ibb.co/55C5jzK"><img src="https://i.ibb.co/19B9Xpz/2025-01-11-180051.png" alt="2025-01-11-180051" border="0"></a>
+<a href="https://ibb.co/55C5jzK"><img src="https://i.ibb.co/19B9Xpz/2025-01-11-180051.png" alt="2025-01-11-180051" border="0"></a>
         </td>
     </tr>
+    
     <tr>
         <td>추천 스터디/스터디 상세/가입한 스터디</td>
         <td>
@@ -108,6 +109,7 @@
 <a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
         </td>
     </tr>
+    
     <tr>
         <td>내 정보/그룹 대시보드/개인 대시보드</td>
         <td>
