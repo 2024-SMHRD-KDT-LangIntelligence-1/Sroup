@@ -79,6 +79,5 @@
 </br>
 
 <br>
-## ?
-![시스템아키텍처-SROUP](https://ibb.co/jyp1D7N)
+<a href="https://ibb.co/jyp1D7N"><img src="https://i.ibb.co/McX37qv/2025-01-11-171144.png" alt="2025-01-11-171144" border="0"></a>
 </br>
