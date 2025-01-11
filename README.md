@@ -120,5 +120,5 @@
 <br>
 
 ## ⚙ 시스템 아키텍처
-![시스템아키텍처-SROUP](https://raw.githubusercontent.com/2024-SMHRD-KDT-LangIntelligence-1/Sroup/refs/heads/master/KakaoTalk_20250107_213432094.mp4)
+![시스템아키텍처-SROUP](KakaoTalk_20250107_213432094.mp4)
 </br>
