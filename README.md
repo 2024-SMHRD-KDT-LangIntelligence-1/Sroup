@@ -117,8 +117,9 @@
         </td>
     </tr>
 </table>
+
 <br>
 
-## ⚙ 시스템 아키텍처
-![시스템아키텍처-SROUP](KakaoTalk_20250107_213432094.mp4)
+## 모델개발 트러블 슈팅
+<a href="https://ibb.co/L9tJ4vC"><img src="https://i.ibb.co/Zc8YyNh/2025-01-11-190851.png" alt="2025-01-11-190851" border="0"></a>
 </br>
