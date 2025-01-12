@@ -54,76 +54,7 @@
         <td>프레임워크</td>
         <td>
             <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/> 
-            <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=white"/>
-        </td>
-    </tr>
-    <tr>
-        <td>데이터베이스</td>
-        <td>
-            <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white"/> 
-        </td>
-    </tr>
-    <tr>
-        <td>협업도구</td>
-        <td>
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
-        </td>
-    </tr>
-</table>
-
-
-<br>
-
-## ⚙ 시스템 아키텍처
-![시스템아키텍처-SROUP](https://github.com/user-attachments/assets/29900f43-5843-4f22-a6f3-8acbe7cfe86b)
-</br>
-
-<br>
-
-## ER 다이어그램
-<a href="https://ibb.co/F80GSCZ"><img src="https://i.ibb.co/SVdqhGY/Kakao-Talk-20250109-093138131.png" alt="Kakao-Talk-20250109-093138131" border="0"></a>
-</br>
-
-<br>
-
-## 모델 구현
-<a href="https://ibb.co/jyp1D7N"><img src="https://i.ibb.co/McX37qv/2025-01-11-171144.png" alt="2025-01-11-171144" border="0"></a>
-</br>
-
-
-## WEB 페이지
-<table>
-
-<tr>
-<td style="text-align: center;">메인페이지</td>
-        <td>
-<a href="https://ibb.co/55C5jzK"><img src="https://i.ibb.co/19B9Xpz/2025-01-11-180051.png" alt="2025-01-11-180051" border="0"></a>
-        </td>
-    </tr>
-    <tr>
-        <td>추천 스터디/스터디 상세/가입한 스터디</td>
-        <td>
-<a href="https://ibb.co/QrjLrP6"><img src="https://i.ibb.co/ZW15WBh/2025-01-11-180420.png" alt="2025-01-11-180420" border="0"></a>
-<a href="https://ibb.co/X5Vdwqr"><img src="https://i.ibb.co/DML6qZH/2025-01-11-180630.png" alt="2025-01-11-180630" border="0"></a>
-<a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
-        </td>
-    </tr>
-    <tr>
-        <td>내 정보/그룹 대시보드/개인 대시보드</td>
-        <td>
-<a href="https://ibb.co/HTWD9yq"><img src="https://i.ibb.co/yFwnxCq/2025-01-11-180721.png" alt="2025-01-11-180721" border="0"></a>
-<a href="https://ibb.co/CV298n8"><img src="https://i.ibb.co/ygSkP8P/2025-01-11-180807.png" alt="2025-01-11-180807" border="0"></a>
-<a href="https://ibb.co/b13yTKy"><img src="https://i.ibb.co/6YZpzWp/2025-01-11-180843.png" alt="2025-01-11-180843" border="0"></a>
-        </td>
-    </tr>
-</table>
-
-<br>
-
-## 모델개발 트러블 슈팅
-<a href="https://ibb.co/L9tJ4vC"><img src="https://i.ibb.co/Zc8YyNh/2025-01-11-190851.png" alt="2025-01-11-190851" border="0"></a>
-
-<span>모델 개발 중 사용자의 키워드 값이 안 넘어오는 문제점이 발생</span>
+            <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&log가는 문제점이 발생</span>
 
 <span>해결방안 - json 타입을 명시하여 key/value 값으로 변경 후 출력</span>
 </br>
