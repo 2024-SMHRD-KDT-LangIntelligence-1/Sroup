@@ -129,18 +129,26 @@
         </td>
 </tr>
 
-    <tr>
-        <td>
-		<br>내 정보</br>
-		<br>그룹 대시보드</br>
-		<br>개인 대시보드</br>
-	</td>
+<tr>
+<td>내 정보</td>
         <td>
 <a href="https://ibb.co/HTWD9yq"><img src="https://i.ibb.co/yFwnxCq/2025-01-11-180721.png" alt="2025-01-11-180721" border="0"></a>
+        </td>
+</tr>
+
+<tr>
+<td>그룹 대시보드</td>
+        <td>
 <a href="https://ibb.co/CV298n8"><img src="https://i.ibb.co/ygSkP8P/2025-01-11-180807.png" alt="2025-01-11-180807" border="0"></a>
+        </td>
+</tr>
+
+<tr>
+        <td>개인 대시보드</td>
+        <td>
 <a href="https://ibb.co/b13yTKy"><img src="https://i.ibb.co/6YZpzWp/2025-01-11-180843.png" alt="2025-01-11-180843" border="0"></a>
         </td>
-    </tr>
+</tr>
 </table>
 
 <br>
