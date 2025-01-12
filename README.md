@@ -102,18 +102,18 @@
 <table>
 
 <tr>
-<td style="text-align: center;">메인페이지</td>
+<td>메인페이지</td>
         <td>
 <a href="https://ibb.co/55C5jzK"><img src="https://i.ibb.co/19B9Xpz/2025-01-11-180051.png" alt="2025-01-11-180051" border="0"></a>
         </td>
     </tr>
     <tr>
-        <td style = "width:30%">
+        <td>
 		<br>추천 스터디</br>
 		<br>스터디 상세</br>
 		<br>가입한 스터디</br>
 	</td>
-        <td style = "width:70%">
+        <td>
 <a href="https://ibb.co/QrjLrP6"><img src="https://i.ibb.co/ZW15WBh/2025-01-11-180420.png" alt="2025-01-11-180420" border="0"></a>
 <a href="https://ibb.co/X5Vdwqr"><img src="https://i.ibb.co/DML6qZH/2025-01-11-180630.png" alt="2025-01-11-180630" border="0"></a>
 <a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
