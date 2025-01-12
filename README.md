@@ -122,5 +122,7 @@
 
 ## 모델개발 트러블 슈팅
 <a href="https://ibb.co/L9tJ4vC"><img src="https://i.ibb.co/Zc8YyNh/2025-01-11-190851.png" alt="2025-01-11-190851" border="0"></a>
-모델 개발 중 사용자의 키워드 값이 안 넘어오는 문제점이 발생
-해결방안 - json 타입을 명시하여 key/value 값으로 변경 후 출력
+
+<span>모델 개발 중 사용자의 키워드 값이 안 넘어오는 문제점이 발생</span>
+
+<span>해결방안 - json 타입을 명시하여 key/value 값으로 변경 후 출력</span>
