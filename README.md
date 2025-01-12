@@ -133,3 +133,11 @@
 <span>모델 개발 중 사용자의 키워드 값이 안 넘어오는 문제점이 발생</span>
 
 <span>해결방안 - json 타입을 명시하여 key/value 값으로 변경 후 출력</span>
+
+</br>
+
+<br>
+
+## 팀원 역할
+<a href="https://ibb.co/j4P8DRD"><img src="https://i.ibb.co/zfTmZJZ/1.png" alt="1" border="0"></a>
+</br>
