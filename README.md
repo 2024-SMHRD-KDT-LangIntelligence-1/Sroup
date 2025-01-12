@@ -99,7 +99,7 @@
 
 
 ## 💻 WEB 페이지
-<table style = "width:100%">
+<table>
 
 <tr>
 <td style="text-align: center;">메인페이지</td>
@@ -108,12 +108,12 @@
         </td>
     </tr>
     <tr>
-        <td>
+        <td style = "width:30%">
 		<br>추천 스터디</br>
 		<br>스터디 상세</br>
 		<br>가입한 스터디</br>
 	</td>
-        <td>
+        <td style = "width:70%">
 <a href="https://ibb.co/QrjLrP6"><img src="https://i.ibb.co/ZW15WBh/2025-01-11-180420.png" alt="2025-01-11-180420" border="0"></a>
 <a href="https://ibb.co/X5Vdwqr"><img src="https://i.ibb.co/DML6qZH/2025-01-11-180630.png" alt="2025-01-11-180630" border="0"></a>
 <a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
