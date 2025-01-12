@@ -99,7 +99,7 @@
 
 
 ## 💻 WEB 페이지
-<table>
+<table style = "width:100%">
 
 <tr>
 <td style="text-align: center;">메인페이지</td>
@@ -109,7 +109,7 @@
     </tr>
     <tr>
         <td>
-		<br table style = "width:100%">추천 스터디</br>
+		<br>추천 스터디</br>
 		<br>스터디 상세</br>
 		<br>가입한 스터디</br>
 	</td>
