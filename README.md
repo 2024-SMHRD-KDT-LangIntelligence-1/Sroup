@@ -130,7 +130,7 @@
 </tr>
 
 <tr>
-<td>내 정보</td>
+	<td>내 정보</td>
         <td>
 <a href="https://ibb.co/HTWD9yq"><img src="https://i.ibb.co/yFwnxCq/2025-01-11-180721.png" alt="2025-01-11-180721" border="0"></a>
         </td>
