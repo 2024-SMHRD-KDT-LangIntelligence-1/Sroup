@@ -109,11 +109,9 @@
     </tr>
     <tr>
         <td>
-		<span>추천 스터디</span>
-		
-		<span>스터디 상세</span>
-  
-		<span>가입한 스터디</span>
+		<br>추천 스터디</br>
+		<br>스터디 상세</br>
+		<br>가입한 스터디</br>
 	</td>
         <td>
 <a href="https://ibb.co/QrjLrP6"><img src="https://i.ibb.co/ZW15WBh/2025-01-11-180420.png" alt="2025-01-11-180420" border="0"></a>
