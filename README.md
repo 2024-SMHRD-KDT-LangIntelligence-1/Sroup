@@ -110,7 +110,9 @@
     <tr>
         <td>
 		<span>추천 스터디</span>
+		
 		<span>스터디 상세</span>
+  
 		<span>가입한 스터디</span>
 	</td>
         <td>
