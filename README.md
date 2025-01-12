@@ -73,7 +73,7 @@
 
 <br>
 
-## 유스케이스
+## 🧾유스케이스
 <a href="https://ibb.co/pLtSyTp"><img src="https://i.ibb.co/LZL35yf/Kakao-Talk-20250111-193356203.png" alt="Kakao-Talk-20250111-193356203" border="0"></a>
 </br>
 
@@ -87,18 +87,18 @@
 
 <br>
 
-## ER 다이어그램
+## ✏ ER 다이어그램
 <a href="https://ibb.co/F80GSCZ"><img src="https://i.ibb.co/SVdqhGY/Kakao-Talk-20250109-093138131.png" alt="Kakao-Talk-20250109-093138131" border="0"></a>
 </br>
 
 <br>
 
-## 모델 구현
+## 🪄 모델 구현
 <a href="https://ibb.co/jyp1D7N"><img src="https://i.ibb.co/McX37qv/2025-01-11-171144.png" alt="2025-01-11-171144" border="0"></a>
 </br>
 
 
-## WEB 페이지
+## 💻 WEB 페이지
 <table>
 
 <tr>
@@ -127,7 +127,7 @@
 
 <br>
 
-## 모델개발 트러블 슈팅
+## 🔐 모델개발 트러블 슈팅
 <a href="https://ibb.co/L9tJ4vC"><img src="https://i.ibb.co/Zc8YyNh/2025-01-11-190851.png" alt="2025-01-11-190851" border="0"></a>
 
 <span>모델 개발 중 사용자의 키워드 값이 안 넘어오는 문제점이 발생</span>
@@ -138,6 +138,6 @@
 
 <br>
 
-## 팀원 역할
+## 🤝 팀원 역할
 <a href="https://ibb.co/j4P8DRD"><img src="https://i.ibb.co/zfTmZJZ/1.png" alt="1" border="0"></a>
 </br>
