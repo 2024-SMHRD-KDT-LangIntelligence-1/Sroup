@@ -109,7 +109,7 @@
     </tr>
     <tr>
         <td>
-		<br>추천 스터디</br>
+		<br text-align: center;>추천 스터디</br>
 		<br>스터디 상세</br>
 		<br>가입한 스터디</br>
 	</td>
@@ -120,7 +120,11 @@
         </td>
     </tr>
     <tr>
-        <td>내 정보/그룹 대시보드/개인 대시보드</td>
+        <td>
+		<br>내 정보</br>
+		<br>그룹 대시보드</br>
+		<br>개인 대시보드</br>
+	</td>
         <td>
 <a href="https://ibb.co/HTWD9yq"><img src="https://i.ibb.co/yFwnxCq/2025-01-11-180721.png" alt="2025-01-11-180721" border="0"></a>
 <a href="https://ibb.co/CV298n8"><img src="https://i.ibb.co/ygSkP8P/2025-01-11-180807.png" alt="2025-01-11-180807" border="0"></a>
