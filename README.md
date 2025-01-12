@@ -108,11 +108,9 @@
         </td>
     </tr>
     <tr>
-        <td>추천 스터디/스터디 상세/가입한 스터디</td>
+        <td>추천 스터디</td>
         <td>
 <a href="https://ibb.co/QrjLrP6"><img src="https://i.ibb.co/ZW15WBh/2025-01-11-180420.png" alt="2025-01-11-180420" border="0"></a>
-<a href="https://ibb.co/X5Vdwqr"><img src="https://i.ibb.co/DML6qZH/2025-01-11-180630.png" alt="2025-01-11-180630" border="0"></a>
-<a href="https://ibb.co/5GRYX56"><img src="https://i.ibb.co/CmHJpnz/2025-01-11-180654.png" alt="2025-01-11-180654" border="0"></a>
         </td>
     </tr>
     <tr>
