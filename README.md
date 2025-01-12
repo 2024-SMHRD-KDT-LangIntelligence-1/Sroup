@@ -108,8 +108,8 @@
         </td>
     </tr>
     <tr>
-        <td table style = "width:100%">
-		<br>추천 스터디</br>
+        <td>
+		<br table style = "width:100%">추천 스터디</br>
 		<br>스터디 상세</br>
 		<br>가입한 스터디</br>
 	</td>
